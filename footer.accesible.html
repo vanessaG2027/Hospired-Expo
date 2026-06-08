@@ -1,0 +1,207 @@
+<body>
+<html>
+
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-content">
+        <div class="footer-links-container">
+            
+            <nav class="footer-column" aria-label="Navegación del pie de página: Nosotros">
+                <h4>Nosotros</h4>
+                <ul>
+                    <li><a href="#quienes-somos">¿Quiénes somos?</a></li>
+                    <li><a href="#mision">Nuestra Misión</a></li>
+                    <li><a href="#vision">Nuestra Visión</a></li>
+                    <li><a href="#como-funciona">Cómo funciona</a></li>
+                </ul>
+            </nav>
+            
+            <nav class="footer-column" aria-label="Navegación del pie de página: Soporte y Legal">
+                <h4>Ayuda y Legal</h4>
+                <ul>
+                    <li><a href="#soporte">Soporte Técnico</a></li>
+                    <li><a href="#ayuda-urgente">Ayuda Urgente</a></li>
+                    <li><a href="#terminos">Términos y condiciones</a></li>
+                    <li><a href="#privacidad">Política de privacidad</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-column">
+                <h4>Contáctanos</h4>
+                <ul class="contact-list">
+                    <li>
+                        <a href="tel:22222222" aria-label="Llamar al teléfono fijo de atención 2 2 2 2, 2 2 2 2">
+                            <span class="phone-icon" aria-hidden="true">📞</span> 2222 - 2222
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:23237898" aria-label="Llamar al teléfono celular de asistencia 2 3 2 3, 7 8 9 8">
+                            <span class="phone-icon" aria-hidden="true">📱</span> 2323 - 7898
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Redes sociales</h4>
+                <div class="social-icons-container">
+                    <a href="https://www.instagram.com/hospired_es?igsh=YXN0dHFocnF6NTZh" target="_blank" rel="noopener" aria-label="Visitar nuestro perfil oficial de Instagram (abre en una nueva pestaña)"> 
+                        <img src="instagram-8203531_1280.png" alt="Instagram de Hospired">
+                    </a>
+                    <a href="https://facebook.com/hospired" target="_blank" rel="noopener" aria-label="Visitar nuestra página oficial de Facebook (abre en una nueva pestaña)"> 
+                        <img src="image-removebg-preview.png" alt="Facebook de Hospired"> 
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Hospired. Todos los derechos reservados. Diseñado con enfoque en accesibilidad universal.</p>
+    </div>
+</footer>
+
+<style> 
+
+/* ==========================================================================
+   PIE DE PÁGINA (HOSPIRED ACCESIBLE FOOTER)
+   ========================================================================== */
+
+/* Variables de color locales para asegurar contraste AA (> 4.5:1) */
+.site-footer {
+    --ft-bg: #0f3f5d;         /* Azul marino profundo de fondo */
+    --ft-text: #f1f5f9;       /* Blanco grisáceo de alta visibilidad para texto */
+    --ft-accent: #00d1c4;     /* Turquesa brillante para títulos y hovers */
+    --ft-border: rgba(255, 255, 255, 0.15);
+    --ft-focus-outline: #3b82f6;
+
+    background-color: var(--ft-bg);
+    color: var(--ft-text);
+    padding: 60px 20px 20px 20px;
+    border-top: 5px solid #00A79D; /* Línea de marca Hospired */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Contenedor adaptativo centrado */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Reemplazo de tablas/columnas antiguas por un CSS Grid Responsivo */
+.footer-links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+/* Estilos de las columnas y listas */
+.footer-column h4 {
+    color: var(--ft-accent);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 12px;
+}
+
+/* Enlaces del Footer */
+.footer-column a {
+    color: var(--ft-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-block;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+/* Estados interactivos accesibles (Hover & Focus) */
+.footer-column a:hover {
+    color: var(--ft-accent);
+    text-decoration: underline;
+}
+
+/* Anillo visual de enfoque para navegación por teclado (Tecla TAB) */
+.footer-column a:focus-visible {
+    outline: 3px solid var(--ft-focus-outline);
+    outline-offset: 4px;
+    border-radius: 4px;
+    color: var(--ft-accent);
+}
+
+/* Lista de contactos específicos */
+.contact-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.phone-icon {
+    font-size: 1.1rem;
+}
+
+/* Contenedor de iconos de Redes Sociales */
+.social-icons-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.social-icons-container a {
+    display:inline-block;
+    border-radius: 8px;
+}
+
+.social-icons-container img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+.social-icons-container a:hover img {
+    transform: scale(1.15);
+}
+
+/* Créditos inferiores (Copyright) */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 24px;
+    border-top: 1px solid var(--ft-border);
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+/* ==========================================================================
+   Ajustes para dispositivos muy pequeños
+   ========================================================================== */
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 40px 15px 20px 15px;
+        text-align: center;
+    }
+    
+    .social-icons-container {
+        justify-content: center;
+    }
+
+    .contact-list a {
+        justify-content: center;
+    }
+}
+
+</style>
+ </html>
+ </body>
