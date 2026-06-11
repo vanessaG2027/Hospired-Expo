@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospired - Inicio Seguro y Accesible</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+    <header class="site-header" role="banner">
+        <div class="menu-shell">
+            <nav class="top-row" aria-label="Menú principal">
+                <a class="brand" href="index.html" aria-label="Inicio Hospired">
+                    <img src="Hospired.logo.png" alt="Logo de Hospired: una letra H estilizada en tonos verdes con una silueta de persona alegre en el centro">
+                </a>
+
+                <div class="search-wrap">
+                    <form class="search-form" role="search" onsubmit="event.preventDefault();">
+                        <input type="search" name="query" placeholder="Buscar servicios, especialidades o doctores..." aria-label="Buscar servicios médicos">
+                        <button type="submit" aria-label="Ejecutar búsqueda">Buscar</button>
+                    </form>
+                </div>
+
+                <div class="profile" aria-label="Perfil del usuario">
+                    <div class="avatar" aria-hidden="true">MJ</div>
+                    <div class="account">
+                        <span class="name">Mi cuenta</span>
+                        <span class="hint">Perfil</span>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="secondary-row" aria-label="Opciones secundarias">
+                <div class="hamburger">
+                    <button id="hamburgerBtn" class="hamburger-button" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="hamburgerMenu">
+                        <span aria-hidden="true">☰</span> Menú
+                    </button>
+
+                    <div id="hamburgerMenu" class="menu-panel" role="menu" aria-label="Desplegable de navegación">
+                        <a class="menu-item" role="menuitem" href="#servicios">Laboratorios</a>
+                        <a class="menu-item" role="menuitem" href="#clinica">Clínicas</a>
+                        <a class="menu-item" role="menuitem" href="#notificaciones">Notificaciones</a>
+                        <a class="menu-item" role="menuitem" href="#soporte">Soporte y ayuda</a>
+                        <a class="menu-item" role="menuitem" href="#quienes-somos">Quiénes Somos</a>
+                    </div>
+                </div>
+
+                <div class="actions" role="toolbar" aria-label="Acciones principales de usuario">
+                    <button class="btn" type="button" onclick="location.href='mis-citas.html'">Mis citas</button>
+                    <button class="btn ghost" type="button" onclick="location.href='index.html'">Inicio</button>
+                    <button class="btn" type="button" onclick="location.href='reservar.html'">Reservar</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+        
+        <section id="carouselExampleCaptions" class="carousel" role="region" aria-label="Carrusel de promociones destacadas e información de salud">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img-1-Near.png" alt="Mensajero de la salud cercano a un paciente sonriente de la tercera edad">
+                    <div class="carousel-caption">
+                        <h2>"Más cerca"</h2>
+                        <p>Conectamos pacientes con los mejores servicios de salud a tu alcance de manera inmediata.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img-2-accesible.jpg" alt="Doctora profesional mostrando una tablet con datos clínicos claros">
+                    <div class="carousel-caption">
+                        <h2>"Más accesible"</h2>
+                        <p>Acceso fácil, digital y rápido a consultas, laboratorios y expedientes médicos integrales.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img-3-human.jpg" alt="Equipo médico multidisciplinario atendiendo con calidez humana">
+                    <div class="carousel-caption">
+                        <h2>"Más humano"</h2>
+                        <p>Atención personalizada centrada en la empatía, el respeto y la máxima calidad médica.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" aria-label="Fotografía anterior">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" aria-label="Fotografía siguiente">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+            <div class="carousel-indicators" role="tablist" aria-label="Puntos de navegación del carrusel">
+                <button type="button" class="active" data-bs-slide-to="0" aria-current="true" role="tab" aria-label="Ir a diapositiva 1"></button>
+                <button type="button" data-bs-slide-to="1" role="tab" aria-label="Ir a diapositiva 2"></button>
+                <button type="button" data-bs-slide-to="2" role="tab" aria-label="Ir a diapositiva 3"></button>
+            </div>
+        </section>
+
+        <section class="process-section" aria-labelledby="main-heading">
+            <h2 id="main-heading" class="process-title">¿Cómo funciona nuestra plataforma?</h2>
+            <ol class="process-grid" role="list">
+                <li class="process-card" tabindex="0" aria-label="Paso 1: Busca. Encuentra fácilmente los centros médicos y especialistas más cercanos a ti.">
+                    <div class="step-number" aria-hidden="true">1</div>
+                    <h3 class="step-title">Busca</h3>
+                    <div class="step-content">
+                        <div class="step-icon-wrapper">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        </div>
+                        <p class="step-description">Encuentra centros médicos y especialistas cercanos a tu ubicación.</p>
+                    </div>
+                </li>
+                <li class="process-card" tabindex="0" aria-label="Paso 2: Elige. Selecciona la clínica o laboratorio que mejor se adapte a tus necesidades específicas.">
+                    <div class="step-number" aria-hidden="true">2</div>
+                    <h3 class="step-title">Elige</h3>
+                    <div class="step-content">
+                        <div class="step-icon-wrapper">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 4H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 11h-4v4h-2v-4H7v-2h4V9h2v4h4v2z"/></svg>
+                        </div>
+                        <p class="step-description">Selecciona la clínica o laboratorio idóneo para tus necesidades.</p>
+                    </div>
+                </li>
+                <li class="process-card" tabindex="0" aria-label="Paso 3: Reserva. Agenda tu cita en el horario y fecha de tu preferencia al instante de forma digital.">
+                    <div class="step-number" aria-hidden="true">3</div>
+                    <h3 class="step-title">Reserva</h3>
+                    <div class="step-content">
+                        <div class="step-icon-wrapper">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                        </div>
+                        <p class="step-description">Agenda tu cita médica digital en el horario de tu conveniencia.</p>
+                    </div>
+                </li>
+                <li class="process-card" tabindex="0" aria-label="Paso 4: Atención. Recibe atención profesional, humana y de calidad médica garantizada en tu centro de elección.">
+                    <div class="step-number" aria-hidden="true">4</div>
+                    <h3 class="step-title">Atención</h3>
+                    <div class="step-content">
+                        <div class="step-icon-wrapper">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
+                        </div>
+                        <p class="step-description">Recibe atención integral de alta calidad en el lugar seleccionado.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section id="quienes-somos" class="about-corporate-section" aria-labelledby="about-heading">
+            <div class="about-container">
+                
+                <div class="about-hero-block">
+                    <div class="about-hero-text">
+                        <span class="about-badge">Sobre Nosotros</span>
+                        <h2 id="about-heading" class="about-main-title">Líderes en Conectividad y Ecosistema de Salud Digital</h2>
+                        <p class="about-lead">
+                            En <strong>Hospired</strong>, transformamos la experiencia de acceso a los servicios de salud mediante una plataforma robusta, inclusiva y transparente. Consolidamos en un solo lugar la oferta de clínicas, laboratorios y médicos profesionales para brindar un control absoluto a los pacientes.
+                        </p>
+                        <p class="about-body-text">
+                            Nuestra solución elimina las barreras burocráticas tradicionales, permitiendo una interacción ágil e interactiva diseñada minuciosamente para todo público, garantizando el cumplimiento riguroso de normativas internacionales de accesibilidad digital.
+                        </p>
+                    </div>
+                    <div class="about-hero-graphic" aria-hidden="true">
+                        <div class="graphic-circle-accent"></div>
+                        <div class="graphic-card-mockup">
+                            <span class="mock-line-lg"></span>
+                            <span class="mock-line-md"></span>
+                            <span class="mock-button"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mv-cards-grid">
+                    
+                    <div class="mv-card scheme-mission" tabindex="0">
+                        <div class="mv-card-header">
+                            <div class="mv-icon-shape" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L12 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            </div>
+                            <h3 class="mv-card-title">Nuestra Misión</h3>
+                        </div>
+                        <p class="mv-card-description">
+                           Hospired existe para eliminar las barreras que impiden el acceso a la salud en El Salvador. Somos una plataforma digital que conecta a las personas con clínicas, hospitales y laboratorios cercanos, confiables y asequibles, facilitando el agendamiento autónomo y la accesibilidad tecnológica para todos.
+                        </p>
+                    </div>
+
+                    <div class="mv-card scheme-vision" tabindex="0">
+                        <div class="mv-card-header">
+                            <div class="mv-icon-shape" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                            </div>
+                            <h3 class="mv-card-title">Nuestra Visión</h3>
+                        </div>
+                        <p class="mv-card-description">
+                           Ser la plataforma de salud más accesible e inclusiva de El Salvador, reconocida nacionalmente por garantizar que toda persona, sin importar sus capacidades o condición socioeconómica, pueda recibir atención médica de calidad cerca de su hogar.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+       <!---Parte interactiva-->
+
+      <section class="wizard-trigger-section" style="padding: 40px 20px; text-align: center;">
+    <h2 style="color: var(--color-text-main); margin-bottom: 10px;">¿Listo para agendar tu cita médica?</h2>
+    <p style="color: var(--color-text-muted); margin-bottom: 25px; font-size: 1.1rem;">
+        Si te cuesta navegar por menús tradicionales, prueba nuestro asistente interactivo guiado paso a paso.
+    </p>
+    <button id="startWizardBtn" class="btn-wizard-trigger" type="button" aria-haspopup="dialog" aria-controls="wizardModal">
+        ✨ ¿Te ayudamos a encontrar tu cita? (Ruta Guiada)
+    </button>
+</section>
+
+<div id="wizardModal" class="wizard-modal" role="dialog" aria-modal="true" aria-labelledby="wizardTitle" aria-hidden="true" style="display: none;">
+    <div class="wizard-container">
+        
+        <header class="wizard-header">
+            <h2 id="wizardTitle" class="wizard-main-title" tabindex="-1">Asistente de Ruta Guiada</h2>
+            <button id="closeWizardBtn" class="btn-close-wizard" type="button" aria-label="Cerrar asistente y volver a la página">✕</button>
+            
+            <div class="progress-bar-container" aria-hidden="true">
+                <div id="wizardProgress" class="progress-bar-fill" style="width: 33.33%;"></div>
+            </div>
+            <div class="progress-status-text">
+                <span>Progreso de búsqueda:</span>
+                <strong id="progressStepText">Paso 1 de 3</strong>
+            </div>
+        </header>
+
+        <div id="wizardLiveAnnouncer" class="sr-only" aria-live="polite"></div>
+
+        <form id="wizardForm" onsubmit="event.preventDefault();">
+            
+            <section id="step1" class="wizard-step step-active" aria-labelledby="step1Title">
+                <h3 id="step1Title" class="step-question" tabindex="-1">¿Qué servicio necesitas hoy?</h3>
+                <p class="step-hint">Selecciona una de las siguientes opciones gigantes:</p>
+                
+                <div class="giant-cards-grid">
+                    <button type="button" class="giant-card-btn" data-value="clinica" aria-describedby="descClinica">
+                        <span class="giant-card-icon" aria-hidden="true">🏥</span>
+                        <span class="giant-card-title">Clínicas Médicas</span>
+                        <span id="descClinica" class="giant-card-desc">Consultas con especialistas, médicos generales y atención ambulatoria.</span>
+                    </button>
+
+                    <button type="button" class="giant-card-btn" data-value="laboratorio" aria-describedby="descLab">
+                        <span class="giant-card-icon" aria-hidden="true">🧪</span>
+                        <span class="giant-card-title">Laboratorios Clínicos</span>
+                        <span id="descLab" class="giant-card-desc">Exámenes de sangre, radiografías, ultrasonidos y análisis médicos.</span>
+                    </button>
+                </div>
+            </section>
+
+            <section id="step2" class="wizard-step" aria-labelledby="step2Title">
+                <h3 id="step2Title" class="step-question" tabindex="-1">¿En qué departamento de El Salvador te encuentras?</h3>
+                <p class="step-hint">Elige tu ubicación para mostrarte opciones cercanas:</p>
+                
+                <div class="select-accessible-wrap">
+                    <select id="wizardDeptSelect" class="wizard-select" aria-label="Seleccionar Departamento">
+                        <option value="" disabled selected>-- Selecciona un departamento --</option>
+                        <optgroup label="Zona Central">
+                            <option value="san-salvador">San Salvador</option>
+                            <option value="la-libertad">La Libertad</option>
+                            <option value="chalatenango">Chalatenango</option>
+                            <option value="cuscatlan">Cuscatlán</option>
+                        </optgroup>
+                        <optgroup label="Zona Occidental">
+                            <option value="santa-ana">Santa Ana</option>
+                            <option value="ahachapan">Ahuachapán</option>
+                            <option value="sonsonate">Sonsonate</option>
+                        </optgroup>
+                        <optgroup label="Zona Paracentral">
+                            <option value="la-paz">La Paz</option>
+                            <option value="cabanas">Cabañas</option>
+                            <option value="san-vicente">San Vicente</option>
+                        </optgroup>
+                        <optgroup label="Zona Oriental">
+                            <option value="usulutan">Usulután</option>
+                            <option value="san-miguel">San Miguel</option>
+                            <option value="morazan">Morazán</option>
+                            <option value="la-union">La Unión</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="wizard-actions-row">
+                    <button type="button" class="btn-wizard-nav btn-wizard-back">⬅ Volver</button>
+                    <button type="button" class="btn-wizard-nav btn-wizard-next" id="btnNextStep2" disabled>Continuar ➡</button>
+                </div>
+            </section>
+
+            <section id="step3" class="wizard-step" aria-labelledby="step3Title">
+                <h3 id="step3Title" class="step-question" tabindex="-1">¿Qué especialidad o examen específico buscas?</h3>
+                <p class="step-hint">Escribe o selecciona de la lista asistida:</p>
+                
+                <div class="search-assistant-wrap">
+                    <input type="text" id="wizardSearchInput" class="wizard-input-text" 
+                           placeholder="Ej: Pediatría, Hemograma, Odontología..." 
+                           aria-label="Escribe la especialidad o examen" autocomplete="off" list="wizardSuggestions">
+                    
+                    <datalist id="wizardSuggestions">
+                        <option value="Medicina General">
+                        <option value="Pediatría">
+                        <option value="Ginecología y Obstetricia">
+                        <option value="Cardiología">
+                        <option value="Odontología">
+                        <option value="Hemograma Completo">
+                        <option value="Examen de Orina Completo">
+                        <option value="Perfil Lipídico">
+                        <option value="Ultrasonido Abdominal">
+                        <option value="Radiografía de Tórax">
+                    </datalist>
+                </div>
+
+                <div class="wizard-actions-row">
+                    <button type="button" class="btn-wizard-nav btn-wizard-back">⬅ Volver</button>
+                    <button type="submit" class="btn-wizard-nav btn-wizard-submit" id="btnSubmitWizard" disabled>✨ ¡Buscar Centros Disponibles!</button>
+                </div>
+            </section>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    // ========================================================================
+    // LÓGICA DEL MENÚ HAMBURGUESA
+    // ========================================================================
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    // Toggle del menú al hacer clic en el botón hamburger
+    hamburgerBtn.addEventListener('click', () => {
+        const isOpen = hamburgerMenu.classList.contains('show');
+        
+        if (isOpen) {
+            hamburgerMenu.classList.remove('show');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        } else {
+            hamburgerMenu.classList.add('show');
+            hamburgerBtn.setAttribute('aria-expanded', 'true');
+        }
+    });
+
+    // Cerrar el menú cuando se hace clic en un item
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('show');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Cerrar el menú cuando se presiona Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && hamburgerMenu.classList.contains('show')) {
+            hamburgerMenu.classList.remove('show');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Cerrar el menú cuando se hace clic fuera de él
+    document.addEventListener('click', (e) => {
+        if (!hamburgerBtn.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+            hamburgerMenu.classList.remove('show');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // ========================================================================
+    // LÓGICA DE NAVEGACIÓN ACCESIBLE Y DINÁMICA (MODAL WIZARD)
+    // ========================================================================
+    const startBtn = document.getElementById('startWizardBtn');
+    const closeBtn = document.getElementById('closeWizardBtn');
+    const modal = document.getElementById('wizardModal');
+    const liveAnnouncer = document.getElementById('wizardLiveAnnouncer');
+    const progressBar = document.getElementById('wizardProgress');
+    const progressText = document.getElementById('progressStepText');
+
+    const steps = [document.getElementById('step1'), document.getElementById('step2'), document.getElementById('step3')];
+    let currentStepIndex = 0;
+    let originalFocusedElement;
+
+    // Almacenamiento de respuestas del usuario
+    let wizardData = { service: '', department: '', query: '' };
+
+    // Abrir Modal de manera Inclusiva
+    startBtn.addEventListener('click', () => {
+        originalFocusedElement = document.activeElement; 
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden', 'false');
+        currentStepIndex = 0;
+        updateWizardUI();
+        document.getElementById('wizardTitle').focus();
+    });
+
+    // Cerrar Modal
+    const closeModal = () => {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+        if (originalFocusedElement) originalFocusedElement.focus(); 
+    };
+    closeBtn.addEventListener('click', closeModal);
+
+    // Selección de Tarjetas Gigantes (Paso 1) - Avanza automáticamente al interactuar
+    const giantCards = document.querySelectorAll('.giant-card-btn');
+    giantCards.forEach(card => {
+        card.addEventListener('click', () => {
+            wizardData.service = card.getAttribute('data-value');
+            currentStepIndex = 1; 
+            updateWizardUI();
+        });
+    });
+
+    // Control de validación del Paso 2 (Ubicación)
+    const deptSelect = document.getElementById('wizardDeptSelect');
+    const btnNextStep2 = document.getElementById('btnNextStep2');
+    deptSelect.addEventListener('change', () => {
+        wizardData.department = deptSelect.value;
+        btnNextStep2.disabled = !wizardData.department;
+    });
+    btnNextStep2.addEventListener('click', () => {
+        currentStepIndex = 2; 
+        updateWizardUI();
+    });
+
+    // Control de validación del Paso 3 (Búsqueda por texto largo)
+    const searchInput = document.getElementById('wizardSearchInput');
+    const btnSubmitWizard = document.getElementById('btnSubmitWizard');
+    searchInput.addEventListener('input', () => {
+        wizardData.query = searchInput.value.trim();
+        btnSubmitWizard.disabled = wizardData.query.length < 3;
+    });
+
+    // Botones de Navegación "Volver Atrás"
+    const backButtons = document.querySelectorAll('.btn-wizard-back');
+    backButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (currentStepIndex > 0) {
+                currentStepIndex--;
+                updateWizardUI();
+            }
+        });
+    });
+
+    // Envío del Formulario Completo
+    document.getElementById('wizardForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('¡Ruta Completada con éxito! Buscando resultados en El Salvador para:\\n• Servicio: ' + wizardData.service.toUpperCase() + '\\n• Departamento: ' + wizardData.department + '\\n• Especialidad/Examen: ' + wizardData.query);
+        closeModal();
+    });
+
+    // Función Central para actualizar la Interfaz y el estado de accesibilidad
+    function updateWizardUI() {
+        steps.forEach((step, idx) => {
+            if (idx === currentStepIndex) {
+                step.classList.add('step-active');
+            } else {
+                step.classList.remove('step-active');
+            }
+        });
+
+        // Actualizar barra de nivel/progreso de forma visual
+        const progressPercent = ((currentStepIndex + 1) / steps.length) * 100;
+        progressBar.style.width = progressPercent + '%';
+        progressText.textContent = `Paso ${currentStepIndex + 1} de 3`;
+
+        // Informar por audio a lectores de pantalla (Screen readers)
+        const currentStepTitle = steps[currentStepIndex].querySelector('h3').textContent;
+        liveAnnouncer.textContent = `Cargado Paso ${currentStepIndex + 1} de 3. Pregunta: ${currentStepTitle}`;
+
+        // Mover foco del teclado de manera inteligente a la nueva pregunta activa
+        setTimeout(() => {
+            steps[currentStepIndex].querySelector('h3').focus();
+        }, 150);
+    }
+
+    // Cumplir criterio WCAG: cerrar con tecla Escape
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeModal();
+        }
+    });
+
+    // ========================================================================
+    // LÓGICA DEL CARRUSEL
+    // ========================================================================
+    let currentCarouselIndex = 0;
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const carouselIndicators = document.querySelectorAll('.carousel-indicators button');
+    const carouselPrevBtn = document.querySelector('.carousel-control-prev');
+    const carouselNextBtn = document.querySelector('.carousel-control-next');
+    const totalCarouselItems = carouselItems.length;
+    let carouselAutoplayInterval;
+
+    // Función para mostrar el item del carrusel en el índice especificado
+    function showCarouselItem(index) {
+        // Normalizar el índice (circular)
+        if (index >= totalCarouselItems) {
+            currentCarouselIndex = 0;
+        } else if (index < 0) {
+            currentCarouselIndex = totalCarouselItems - 1;
+        } else {
+            currentCarouselIndex = index;
+        }
+
+        // Remover clase active de todos los items
+        carouselItems.forEach((item) => item.classList.remove('active'));
+        carouselIndicators.forEach((indicator) => indicator.classList.remove('active'));
+
+        // Agregar clase active al item y indicador actual
+        carouselItems[currentCarouselIndex].classList.add('active');
+        carouselIndicators[currentCarouselIndex].classList.add('active');
+    }
+
+    // Botones de control anterior/siguiente
+    carouselPrevBtn.addEventListener('click', () => {
+        showCarouselItem(currentCarouselIndex - 1);
+        resetCarouselAutoplay();
+    });
+
+    carouselNextBtn.addEventListener('click', () => {
+        showCarouselItem(currentCarouselIndex + 1);
+        resetCarouselAutoplay();
+    });
+
+    // Indicadores (puntos de navegación)
+    carouselIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showCarouselItem(index);
+            resetCarouselAutoplay();
+        });
+    });
+
+    // Auto-rotación del carrusel cada 2 minutos
+    function startCarouselAutoplay() {
+        carouselAutoplayInterval = setInterval(() => {
+            showCarouselItem(currentCarouselIndex + 1);
+        }, 120000);
+    }
+
+    // Reiniciar el autoplay cuando el usuario interactúa
+    function resetCarouselAutoplay() {
+        clearInterval(carouselAutoplayInterval);
+        startCarouselAutoplay();
+    }
+
+    // Iniciar autoplay cuando carga la página
+    startCarouselAutoplay();
+</script>
+
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-content">
+        <div class="footer-links-container">
+            
+            <nav class="footer-column" aria-label="Navegación del pie de página: Nosotros">
+                <h4>Nosotros</h4>
+                <ul>
+                    <li><a href="#quienes-somos">¿Quiénes somos?</a></li>
+                    <li><a href="#mision">Nuestra Misión</a></li>
+                    <li><a href="#vision">Nuestra Visión</a></li>
+                    <li><a href="#como-funciona">Cómo funciona</a></li>
+                </ul>
+            </nav>
+            
+            <nav class="footer-column" aria-label="Navegación del pie de página: Soporte y Legal">
+                <h4>Ayuda y Legal</h4>
+                <ul>
+                    <li><a href="#soporte">Soporte Técnico</a></li>
+                    <li><a href="#ayuda-urgente">Ayuda Urgente</a></li>
+                    <li><a href="#terminos">Términos y condiciones</a></li>
+                    <li><a href="#privacidad">Política de privacidad</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-column">
+                <h4>Contáctanos</h4>
+                <ul class="contact-list">
+                    <li>
+                        <a href="tel:22222222" aria-label="Llamar al teléfono fijo de atención 2 2 2 2, 2 2 2 2">
+                            <span class="phone-icon" aria-hidden="true">📞</span> 2222 - 2222
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:23237898" aria-label="Llamar al teléfono celular de asistencia 2 3 2 3, 7 8 9 8">
+                            <span class="phone-icon" aria-hidden="true">📱</span> 2323 - 7898
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Redes sociales</h4>
+                <div class="social-icons-container">
+                    <a href="https://www.instagram.com/hospired_es?igsh=YXN0dHFocnF6NTZh" target="_blank" rel="noopener" aria-label="Visitar nuestro perfil oficial de Instagram (abre en una nueva pestaña)"> 
+                        <img src="instagram-8203531_1280.png" alt="Instagram de Hospired">
+                    </a>
+                    <a href="https://facebook.com/hospired" target="_blank" rel="noopener" aria-label="Visitar nuestra página oficial de Facebook (abre en una nueva pestaña)"> 
+                        <img src="image-removebg-preview.png" alt="Facebook de Hospired"> 
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Hospired. Todos los derechos reservados. Diseñado con enfoque en accesibilidad universal.</p>
+    </div>
+</footer>
+
+    
+</body>
+</html>
