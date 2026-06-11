@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospired - Servicios Médicos</title>
+    <style>
+        /* ==========================================================================
+           1. VARIABLES, COLORES Y ESTILOS BASE
+           ========================================================================== */
+        :root {
+            --color-primary: #00A79D; 
+            --color-primary-dark: #007F78; 
+            --color-primary-alpha: #1f918925; /* Fondo traslúcido para etiquetas */
+            --color-border: #dfe5ef;
+            --color-surface: #ffffff;
+            --color-text: #1f2937;
+            --color-muted: #6b7280;
+            --shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+            
+            /* Variables exclusivas del footer */
+            --bg-dark-blue: #0f3f5d;       
+            --color-accent-blue: #3a8bbb;  
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: var(--color-text);
+            background-color: #f5f5f5;
+            /* Flexbox para empujar el footer abajo si hay poco contenido */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Container genérico para centrar contenido */
+        .container-shell {
+            max-width: 1180px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 18px;
+        }
+
+        /* ==========================================================================
+           2. DISEÑO DEL MENÚ DE NAVEGACIÓN (HEADER SUPERIOR FIJO)
+           ========================================================================== */
+        .site-header {
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: var(--shadow);
+            min-height: 88px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .menu-shell {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px 18px;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .top-row {
+            display: grid;
+            grid-template-columns: auto minmax(240px, 1fr) auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand img {
+            display: block;
+            width: 96px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .search-wrap {
+            display: flex;
+            justify-self: center;
+            width: 100%;
+            max-width: 620px;
+            min-width: 0;
+        }
+
+        .search-form {
+            display: flex;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .search-form input[type="search"] {
+            flex: 1 1 auto;
+            min-width: 0;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px 0 0 6px;
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+
+        .search-form button {
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            border-left: none;
+            border-radius: 0 6px 6px 0;
+            background: var(--color-primary);
+            color: #fff;
+            cursor: pointer;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .search-form button:hover {
+            background: var(--color-primary-dark);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-self: end;
+            white-space: nowrap;
+        }
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(180deg, var(--color-primary), var(--color-primary-dark));
+            flex-shrink: 0;
+        }
+
+        .account {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .account .name {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .account .hint {
+            font-size: 0.72rem;
+            color: var(--color-muted);
+        }
+
+        .secondary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hamburger {
+            position: relative;
+        }
+
+        .hamburger-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 12px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            background: #fff;
+            color: var(--color-text);
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .menu-panel {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 220px;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .menu-panel.show {
+            display: flex;
+        }
+
+        .menu-item {
+            padding: 10px 12px;
+            text-decoration: none;
+            color: var(--color-text);
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.92rem;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            background: #f8fafc;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 9px 12px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            background: var(--color-primary);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .btn:hover {
+            background: var(--color-primary-dark);
+        }
+
+        .btn.ghost:hover {
+            background: var(--color-primary);
+            color: #fff;
+        }
+
+        /* ==========================================================================
+           3. DISEÑO DE CATÁLOGO (TARJETAS DE PACIENTES)
+           ========================================================================== */
+        .main-content {
+            flex: 1; /* Permite que esta sección tome el espacio intermedio disponible */
+            margin-top: 160px; /* Margen para no colisionar con el menú fixed */
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: var(--color-text);
+            font-size: 1.6rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--color-surface);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                flex-direction: row;
+            }
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            .card-img {
+                width: 280px;
+                height: auto;
+            }
+        }
+
+        .card-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .card-title {
+            margin: 0 0 6px 0;
+            font-size: 1.35rem;
+            color: var(--color-text);
+            font-weight: 700;
+        }
+
+        /* Badges de centros médicos */
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .badge-clinica {
+            background-color: var(--color-primary-alpha);
+            color: var(--color-primary-dark);
+        }
+
+        .badge-lab {
+            background-color: #f3f4f6;
+            color: var(--color-muted);
+            border: 1px solid var(--color-border);
+        }
+
+        .ubicacion {
+            font-size: 0.92rem;
+            color: var(--color-muted);
+            margin: 6px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rating {
+            color: #f59e0b;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .rating span {
+            color: var(--color-muted);
+            font-weight: normal;
+        }
+
+        /* Desplegable de especialidades interno de tarjetas */
+        .dropdown {
+            margin-bottom: 20px;
+        }
+
+        .dropdown-btn {
+            background: #f8fafc;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+            padding: 10px 14px;
+            width: 100%;
+            text-align: left;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease-out;
+            background: #fafafa;
+            border-radius: 0 0 6px 6px;
+        }
+
+        .dropdown-content ul {
+            margin: 0;
+            padding: 14px 20px;
+            list-style-type: none;
+        }
+
+        .dropdown-content li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .dropdown-content li::before {
+            content: "•";
+            color: var(--color-primary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .dropdown-content li:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn-info {
+            background-color: var(--color-primary);
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: background 0.2s;
+            align-self: flex-start;
+        }
+
+        .btn-info:hover {
+            background-color: var(--color-primary-dark);
+        }
+
+        /* ==========================================================================
+           4. DISEÑO DEL FOOTER (OPTIMIZADO)
+           ========================================================================== */
+        .site-footer {
+            background-color: var(--bg-dark-blue);
+            color: #ffffff;
+            padding: 60px 20px;
+            margin-top: auto; /* Empuja el footer al fondo si el contenido principal es corto */
+        }
+        
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .footer-links-container {
+            display: flex;
+            gap: 80px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%; 
+        }
+        
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-column h4 {
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+        }
+        
+        .footer-column a {
+            color: #e9ecef;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-column a:hover {
+            color: var(--color-primary);
+            transform: translateX(5px);
+        }
+
+        .social-icons-container {
+            display: flex;
+            flex-direction: row; 
+            gap: 16px;           
+        }
+
+        .imagen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .imagen img {
+            width: 32px;  
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .imagen:hover img {
+            transform: scale(1.15);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        /* ==========================================================================
+           5. ADAPTACIÓN RESPONSIVE TOTAL (MÓVILES)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .top-row {
+                grid-template-columns: auto 1fr;
+            }
+
+            .search-wrap {
+                grid-column: 1 / span 2;
+                justify-self: stretch;
+                order: 3;
+            }
+
+            .profile {
+                justify-self: end;
+            }
+
+            .secondary-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .actions {
+                width: 100%;
+            }
+
+            .main-content {
+                margin-top: 210px; /* Previene colisión en layouts móviles apilados */
+            }
+
+            .btn-info {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Footer responsive */
+            .footer-content { 
+                flex-direction: column; 
+                text-align: center; 
+                align-items: center; 
+            }
+            
+            .footer-links-container { 
+                gap: 40px; 
+                justify-content: center;
+                flex-direction: column; 
+                align-items: center;
+            }
+            
+            .footer-column a:hover { 
+                transform: none; 
+            }
+
+            .social-icons-container {
+                justify-content: center;
+            }
+
+            .imagen img {
+                width: 42px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header" role="banner">
+        <div class="menu-shell">
+            <nav class="top-row" aria-label="Menú principal">
+                <a class="brand" href="#inicio" aria-label="Inicio Hospired">
+                    <img src="img/Hospired.logo.png" alt="Logo de Hospired una letra H estilizada en tonos verdes con una silueta de persona alegre en el centro">
+                </a>
+
+                <div class="search-wrap">
+                    <form class="search-form" role="search" onsubmit="event.preventDefault();">
+                        <input type="search" name="query" placeholder="Buscar servicios, especialidades o doctores..." aria-label="Buscar">
+                        <button type="submit" aria-label="Buscar">Buscar</button>
+                    </form>
+                </div>
+
+                <div class="profile" aria-label="Perfil del usuario">
+                    <div class="avatar" aria-hidden="true">MJ</div>
+                    <div class="account">
+                        <span class="name">Mi cuenta</span>
+                        <span class="hint">Perfil</span>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="secondary-row" aria-label="Opciones secundarias">
+                <div class="hamburger">
+                    <button id="hamburgerBtn" class="hamburger-button" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="hamburgerMenu">
+                        <span aria-hidden="true">☰</span>
+                        Menú
+                    </button>
+
+                    <div id="hamburgerMenu" class="menu-panel" role="menu" aria-label="Desplegable">
+                        <a class="menu-item" role="menuitem" href="#servicios">Laboratorios</a>
+                        <a class="menu-item" role="menuitem" href="#clinica">Clínicas</a>
+                        <a class="menu-item" role="menuitem" href="#notificaciones">Notificaciones</a>
+                        <a class="menu-item" role="menuitem" href="#soporte">Soporte y ayuda</a>
+                        <a class="menu-item" role="menuitem" href="#accesibilidad">Ajustes de accesibilidad</a>
+                    </div>
+                </div>
+
+                <div class="actions" role="toolbar" aria-label="Acciones principales">
+                    <button class="btn" type="button" onclick="location.href='#mis-citas'">Mis citas</button>
+                    <button class="btn ghost" type="button" onclick="location.href='#inicio'">Inicio</button>
+                    <button class="btn" type="button" onclick="location.href='#reservar'">Reservar</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container-shell">
+            <h1 class="section-title">Resultados de Búsqueda</h1>
+
+            <div class="grid-servicios">
+                
+                <div class="card" id="clinica-1">
+                    <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=500&q=80" alt="Hospital de Especialidades" class="card-img">
+                    <div class="card-content">
+                        <div>
+                            <div class="card-header">
+                                <h3 class="card-title">Hospital Central de Especialidades</h3>
+                                <span class="badge badge-clinica">Clínica</span>
+                            </div>
+                            <div class="ubicacion">📍 Av. Las Magnolias #124, Colonia Médica</div>
+                            <div class="rating">⭐ 4.8 <span>(120 opiniones)</span></div>
+
+                            <div class="dropdown">
+                                <button class="dropdown-btn" type="button" onclick="toggleCardDropdown(this)">
+                                    Especialidades Médicas <span>▼</span>
+                                </button>
+                                <div class="dropdown-content">
+                                    <ul>
+                                        <li>Pediatría General</li>
+                                        <li>Cardiología Avanzada</li>
+                                        <li>Ginecología y Obstetricia</li>
+                                        <li>Medicina Interna</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-info" type="button" onclick="alert('Abriendo horarios, tarifas e información detallada de la Clínica...')">Ver información completa</button>
+                    </div>
+                </div>
+
+                <div class="card" id="lab-1">
+                    <img src="img/Estacion-del-casco.jpg" alt="Laboratorio Clínico" class="card-img">
+                    <div class="card-content">
+                        <div>
+                            <div class="card-header">
+                                <h3 class="card-title">Laboratorio Analiza</h3>
+                                <span class="badge badge-lab">Laboratorio</span>
+                            </div>
+                            <div class="ubicacion">📍 Calle Principal, Frente a Plaza Central</div>
+                            <div class="rating">⭐ 4.5 <span>(85 opiniones)</span></div>
+
+                            <div class="dropdown">
+                                <button class="dropdown-btn" type="button" onclick="toggleCardDropdown(this)">
+                                    Exámenes Disponibles <span>▼</span>
+                                </button>
+                                <div class="dropdown-content">
+                                    <ul>
+                                        <li>Hematología Completa</li>
+                                        <li>Perfil Lipídico e Inmunológico</li>
+                                        <li>Pruebas Hormonales y Químicas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-info" type="button" onclick="alert('Abriendo horarios, tarifas e información detallada del Laboratorio...')">Ver información completa</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links-container">
+                <div class="footer-column">
+                    <h4>Nosotros</h4>
+                    <a href="#">¿Quiénes somos?</a>
+                    <a href="#">Nuestra Misión</a>
+                    <a href="#">Nuestra Visión</a>
+                    <a href="#">Función</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Ayuda y Legal</h4>
+                    <a href="#">Soporte</a>
+                    <a href="#">Ayuda urgente</a>
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Número de teléfono</h4>
+                    <a href="tel:22222222">2222 - 2222</a>
+                    <a href="tel:23237898">2323 - 7898</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Redes sociales</h4>
+                    <div class="social-icons-container">
+                        <a href="#" class="imagen"> 
+                            <img src="/img/instagram-icon-logo-free-png.webp" alt="Instagram Hospired">
+                        </a>
+                        <a href="#" class="imagen"> 
+                            <img src="/img/facebook-logo-icon-free-png.webp" alt="Facebook Hospired"> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            &copy; 2026 Hospired. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Lógica del menú hamburguesa superior
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+            hamburgerBtn.setAttribute('aria-expanded', String(!expanded));
+            hamburgerMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!hamburgerMenu.contains(event.target) && !hamburgerBtn.contains(event.target)) {
+                hamburgerMenu.classList.remove('show');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Lógica de pestañas desplegables dentro de las tarjetas médicas
+        function toggleCardDropdown(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('span');
+            
+            if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+                content.style.maxHeight = "0px";
+                content.style.border = "none";
+                arrow.textContent = "▼";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.style.border = "1px solid var(--color-border)";
+                content.style.borderTop = "none";
+                arrow.textContent = "▲";
+            }
+        }
+    </script>
+</body>
+</html>
