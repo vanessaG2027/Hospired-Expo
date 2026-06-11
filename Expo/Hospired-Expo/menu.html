@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospired</title>
+    <style>
+        /* colores y diseño */
+
+        body{
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #1f2937;
+            background-color: #f5f5f5;
+        }
+        :root {
+            --color-primary:  #00A79D; 
+            --color-primary-dark:  #007F78; 
+            --color-border: #dfe5ef;
+            --color-surface: #ffffff;
+            --color-text: #1f2937;
+            --color-muted: #6b7280;
+            --shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        }
+
+        * { box-sizing: border-box; }
+
+        /* Inicio del diseño del menu */
+
+        .site-header {
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: var(--shadow);
+            min-height: 88px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .menu-shell {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 10px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .top-row {
+            display: grid;
+            grid-template-columns: auto minmax(240px, 1fr) auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand img {
+            display: block;
+            width: 96px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .search-wrap {
+            display: flex;
+            justify-self: center;
+            width: 100%;
+            max-width: 620px;
+            min-width: 0;
+        }
+
+        .search-form {
+            display: flex;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .search-form input[type="search"] {
+            flex: 1 1 auto;
+            min-width: 0;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px 0 0 6px;
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+
+        .search-form button {
+            padding: 10px 16px;
+            border: 1px solid #00A79D;
+            border-left: none;
+            border-radius: 0 6px 6px 0;
+            background: #00A79D;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .search-form button:hover {
+            background: #007F78;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-self: end;
+            white-space: nowrap;
+        }
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(180deg, #00A79D, #007F78);
+            flex-shrink: 0;
+        }
+
+        .account {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .account .name {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .account .hint {
+            font-size: 0.72rem;
+            color: #6b7280;
+        }
+
+        .secondary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hamburger {
+            position: relative;
+        }
+
+        .hamburger-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 12px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            background: #fff;
+            color: #1f2937;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .menu-panel {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 220px;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #dfe5ef;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .menu-panel.show {
+            display: flex;
+        }
+
+        .menu-item {
+            padding: 10px 12px;
+            text-decoration: none;
+            color: #1f2937;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.92rem;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            background: #f8fafc;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 9px 12px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            background: #00A79D;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: #00A79D;
+            border-color: #00A79D;
+        }
+
+        .btn:hover {
+            background: #007F78;
+        }
+
+        .btn.ghost:hover {
+            background: #00A79D;
+            color: #fff;
+        }
+
+        /* SECCION RESPONSIVE */
+        @media (max-width: 768px) {
+            .top-row {
+                grid-template-columns: auto 1fr;
+            }
+
+            .search-wrap {
+                grid-column: 1 / span 2;
+                justify-self: stretch;
+                order: 3;
+            }
+
+            .profile {
+                justify-self: end;
+            }
+
+            .secondary-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .actions {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+        <!-- INICIO DEL MENU, SECCION 1 -->
+
+    <header class="site-header" role="banner">
+        <!-- logo -->
+        <div class="menu-shell">
+            <nav class="top-row" aria-label="Menú principal">
+                <a class="brand" href="#inicio" aria-label="Inicio Hospired">
+                    <img src="Hospired.logo.png" alt="Logo de Hospired una letra H estilizada en tonos verdes con una silueta de persona alegre en el centro">
+                </a>
+
+      <!-- Barra de busqueda -->
+
+                <div class="search-wrap">
+                    <form class="search-form" role="search" onsubmit="event.preventDefault();">
+                        <input type="search" name="query" placeholder="Buscar servicios, especialidades o doctores..." aria-label="Buscar">
+                        <button type="submit" aria-label="Buscar">Buscar</button>
+                    </form>
+                </div>
+        <!-- Seccion para el perfil -->
+
+                <div class="profile" aria-label="Perfil del usuario">
+                    <div class="avatar" aria-hidden="true">MJ</div>
+                    <div class="account">
+                        <span class="name">Mi cuenta</span>
+                        <span class="hint">Perfil</span>
+                    </div>
+                </div>
+            </nav>
+                                <!-- SECCION 2 -->
+
+            <!-- Menu hamburguesa con opciones -->
+
+            <div class="secondary-row" aria-label="Opciones secundarias">
+                <div class="hamburger">
+                    <button id="hamburgerBtn" class="hamburger-button" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="hamburgerMenu">
+                        <span aria-hidden="true">☰</span>
+                        Menú
+                    </button>
+
+                    <div id="hamburgerMenu" class="menu-panel" role="menu" aria-label="Desplegable">
+                        <a class="menu-item" role="menuitem" href="#servicios">Laboratorios</a>
+                        <a class="menu-item" role="menuitem" href="#clinica">Clínicas</a>
+                        <a class="menu-item" role="menuitem" href="#notificaciones">Notificaciones</a>
+                        <a class="menu-item" role="menuitem" href="#soporte">Soporte y ayuda</a>
+                        <a class="menu-item" role="menuitem" href="#accesibilidad">Ajustes de accesibilidad</a>
+                    </div>
+                </div>
+                <!-- Botones de acción a otras paginas -->
+
+                <div class="actions" role="toolbar" aria-label="Acciones principales">
+                    <button class="btn" type="button" onclick="location.href='#mis-citas'">Mis citas</button>
+                    <button class="btn ghost" type="button" onclick="location.href='#inicio'">Inicio</button>
+                    <button class="btn" type="button" onclick="location.href='#reservar'">Reservar</button>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <!-- PARTE INTERACTIVA CON JS -->
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const readAloudBtn = document.getElementById('readAloudBtn');
+        let speechUtterance = null;
+
+        hamburgerBtn.addEventListener('click', () => {
+            const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+            hamburgerBtn.setAttribute('aria-expanded', String(!expanded));
+            hamburgerMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!hamburgerMenu.contains(event.target) && !hamburgerBtn.contains(event.target)) {
+                hamburgerMenu.classList.remove('show');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+</body>
+</html>

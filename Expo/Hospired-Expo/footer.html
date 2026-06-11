@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Hospired - Solo Footer</title>
+    <style>
+        /* =========================================================
+           1. ESTILOS BASE Y VARIABLES (Necesarios para el footer)
+        ========================================================= */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #1f2937;
+            background-color: #f5f5f5;
+        }
+
+        :root {
+            --color-primary: #00A79D; 
+            --color-primary-dark: #007F78; 
+            --color-text: #1f2937;
+            --bg-dark-blue: #0f3f5d;       /* Azul oscuro del footer */
+            --color-accent-blue: #3a8bbb;  /* Azul claro */
+        }
+
+        * { box-sizing: border-box; }
+
+        /* =========================================================
+           4. DISEÑO DEL FOOTER CORREGIDO Y OPTIMIZADO
+        ========================================================= */
+        .site-footer {
+            background-color: var(--bg-dark-blue);
+            color: #ffffff;
+            padding: 60px 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        /* Enlaces en columnas */
+        .footer-links-container {
+            display: flex;
+            gap: 80px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%; /* Ocupa el ancho completo para centrar el contenido */
+        }
+        
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-column h4 {
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+        }
+        
+        .footer-column a {
+            color: #e9ecef;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-column a:hover {
+            color: var(--color-primary);
+            transform: translateX(5px);
+        }
+
+        /* --- NUEVO: Contenedor para redes sociales (Alineación Horizontal) --- */
+        .social-icons-container {
+            display: flex;
+            flex-direction: row; /* Fuerza la posición horizontal */
+            gap: 16px;           /* Espacio entre iconos */
+        }
+
+        .imagen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* CORRECCIÓN: Control directo y fluido sobre el tamaño del logo */
+        .imagen img {
+            width: 32px;  /* Tamaño perfecto para pantallas de escritorio */
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        /* Efecto visual sutil al pasar el mouse */
+        .imagen:hover img {
+            transform: scale(1.15);
+        }
+
+        /* Créditos del final */
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        /* =========================================================
+           5. DISEÑO RESPONSIVE (Móviles)
+        ========================================================= */
+        @media (max-width: 768px) {
+            .footer-content { 
+                flex-direction: column; 
+                text-align: center; 
+                align-items: center; 
+            }
+            
+            .footer-links-container { 
+                gap: 40px; 
+                justify-content: center;
+                flex-direction: column; /* Las columnas se apilan en teléfonos */
+                align-items: center;
+            }
+            
+            .footer-column a:hover { 
+                transform: none; 
+            }
+
+            /* NUEVO: Centra las redes sociales en pantallas móviles */
+            .social-icons-container {
+                justify-content: center;
+            }
+
+            /* RESPONSIVE: Incrementa el tamaño para facilitar el toque táctil */
+            .imagen img {
+                width: 42px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links-container">
+                <div class="footer-column">
+                    <h4>Nosotros</h4>
+                    <a href="#">¿Quiénes somos?</a>
+                    <a href="#">Nuestra Misión</a>
+                    <a href="#">Nuestra Visión</a>
+                    <a href="#">Función</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Ayuda y Legal</h4>
+                    <a href="#">Soporte</a>
+                    <a href="#">Ayuda urgente</a>
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Número de teléfono</h4>
+                    <a href="tel:22222222">2222 - 2222</a>
+                    <a href="tel:23237898">2323 - 7898</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Redes sociales</h4>
+                    <div class="social-icons-container">
+                        <a href="#" class="imagen"> 
+                            <img src="/img/instagram-icon-logo-free-png.webp" alt="Instagram Hospired">
+                        </a>
+                        <a href="#" class="imagen"> 
+                            <img src="/img/facebook-logo-icon-free-png.webp" alt="Facebook Hospired"> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            &copy; 2026 Hospired. Todos los derechos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>

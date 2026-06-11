@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospired</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+
+    <div class="menu-shell">
+
+        <nav class="top-row">
+
+            <!-- Logo -->
+            <a class="brand" href="#">
+                <img src="img/Hospired.logo.png" alt="Logo de Hospired">
+            </a>
+
+            <!-- Buscador accesible -->
+            <div class="search-box">
+
+                <label for="searchInput" class="sr-only">
+                    Buscar servicios médicos
+                </label>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Buscar servicios, especialidades o doctores..."
+                    aria-label="Buscar servicios médicos">
+
+                <div id="searchResults" class="search-results"></div>
+
+            </div>
+
+            <!-- Perfil -->
+            <div class="profile">
+
+                <div class="avatar">
+                    MJ
+                </div>
+
+                <div class="account">
+                    <span class="name">Mi cuenta</span>
+                    <span class="hint">Perfil</span>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <div class="secondary-row">
+
+            <div class="hamburger">
+
+                <button
+                    id="hamburgerBtn"
+                    class="hamburger-button">
+
+                    ☰ Menú
+
+                </button>
+
+                <div id="hamburgerMenu" class="menu-panel">
+
+                    <a class="menu-item" href="#">
+                        Laboratorios
+                    </a>
+
+                    <a class="menu-item" href="#">
+                        Clínicas
+                    </a>
+
+                    <a class="menu-item" href="#">
+                        Notificaciones
+                    </a>
+
+                    <a class="menu-item" href="#">
+                        Soporte y ayuda
+                    </a>
+
+                    <a class="menu-item" href="#">
+                        Ajustes de accesibilidad
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="actions">
+
+                <button class="btn">
+                    Mis citas
+                </button>
+
+                <button class="btn ghost">
+                    Inicio
+                </button>
+
+                <button class="btn">
+                    Reservar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<script>
+
+/* Menú */
+
+const hamburgerBtn =
+document.getElementById("hamburgerBtn");
+
+const hamburgerMenu =
+document.getElementById("hamburgerMenu");
+
+hamburgerBtn.addEventListener("click", () => {
+    hamburgerMenu.classList.toggle("show");
+});
+
+/* Buscador */
+
+const datos = [
+
+{
+    nombre:"Cardiología",
+    tipo:"Especialidad",
+    imagen:"img/CARDI.jpg"
+},
+
+{
+    nombre:"Pediatría",
+    tipo:"Especialidad",
+    imagen:"img/PEDI.jpg"
+},
+
+{
+    nombre:"Dermatología",
+    tipo:"Especialidad",
+    imagen:"img/DERMA.jpg"
+},
+
+{
+    nombre:"Dr. Carlos Martínez",
+    tipo:"Cardiólogo",
+    imagen:"img/CARDIDOCTOR.jpg"
+},
+
+{
+    nombre:"Dr. Natanael López",
+    tipo:"Pediatra",
+    imagen:"img/PEDIDOCTOR.jpg"
+}
+
+];
+
+const input =
+document.getElementById("searchInput");
+
+const results =
+document.getElementById("searchResults");
+
+input.addEventListener("input", () => {
+
+    const texto =
+    input.value.toLowerCase();
+
+    results.innerHTML = "";
+
+    if(texto === ""){
+        results.style.display = "none";
+        return;
+    }
+
+    const filtrados = datos.filter(item =>
+        item.nombre.toLowerCase().includes(texto)
+    );
+
+    filtrados.forEach(item => {
+
+        const div =
+        document.createElement("div");
+
+        div.classList.add("result-item");
+
+        div.innerHTML = `
+            <img src="${item.imagen}" alt="${item.nombre}">
+            <div>
+                <strong>${item.nombre}</strong><br>
+                <small>${item.tipo}</small>
+            </div>
+        `;
+
+        results.appendChild(div);
+
+    });
+
+    results.style.display = "block";
+
+});
+
+document.addEventListener("click",(e)=>{
+
+    if(
+        !results.contains(e.target) &&
+        !input.contains(e.target)
+    ){
+        results.style.display = "none";
+    }
+
+});
+
+</script>
+
+</body>
+</html>

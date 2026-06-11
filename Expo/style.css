@@ -1,0 +1,183 @@
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+}
+
+.site-header{
+    background:white;
+    border-bottom:1px solid #ddd;
+    padding:10px;
+}
+
+.menu-shell{
+    max-width:1200px;
+    margin:auto;
+}
+
+.top-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.brand img{
+    width:90px;
+}
+
+.search-box{
+    flex:1;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.search-box input:focus{
+    outline:3px solid #00A79D;
+}
+
+.search-results{
+    position:absolute;
+    top:105%;
+    left:0;
+    right:0;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:8px;
+    display:none;
+    max-height:250px;
+    overflow-y:auto;
+    z-index:1000;
+}
+
+.result-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px;
+    cursor:pointer;
+}
+
+.result-item:hover{
+    background:#f2f2f2;
+}
+
+.result-item img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#00A79D;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.account{
+    display:flex;
+    flex-direction:column;
+}
+
+.secondary-row{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+}
+
+.hamburger{
+    position:relative;
+}
+
+.hamburger-button{
+    padding:10px 15px;
+    cursor:pointer;
+}
+
+.menu-panel{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:white;
+    border:1px solid #ddd;
+    min-width:200px;
+}
+
+.menu-panel.show{
+    display:block;
+}
+
+.menu-item{
+    display:block;
+    padding:12px;
+    text-decoration:none;
+    color:black;
+}
+
+.menu-item:hover{
+    background:#f2f2f2;
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    padding:10px 15px;
+    border:none;
+    border-radius:6px;
+    background:#00A79D;
+    color:white;
+    cursor:pointer;
+}
+
+.ghost{
+    background:white;
+    color:#00A79D;
+    border:1px solid #00A79D;
+}
+
+.sr-only{
+    position:absolute;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+@media(max-width:768px){
+
+    .top-row{
+        flex-direction:column;
+    }
+
+    .secondary-row{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .actions{
+        flex-wrap:wrap;
+    }
+
+}
