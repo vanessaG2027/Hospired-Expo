@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospired Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logo-container">
+        <img src="Hospired-Expo/Hospired.logo.png" alt="Logo Hospired" class="logo">
+    </div>
+
+    <div class="role-selector">
+        <button onclick="showForm('patient')">Paciente</button>
+        <button onclick="showForm('doctor')">Doctor</button>
+    </div>
+
+    <!-- PACIENTE -->
+    <form id="patientForm" class="hidden">
+
+        <h2>Ingreso de Paciente</h2>
+
+        <input type="text" placeholder="Nombre completo" required>
+
+        <input type="email" placeholder="Correo electrónico" required>
+
+        <input type="tel" placeholder="Número de teléfono">
+
+        <input type="number" placeholder="Edad" required>
+
+        <select required>
+            <option value="">Seleccione género</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+            <option>Otro</option>
+        </select>
+
+        <input type="text" placeholder="Tipo de sangre">
+
+        <textarea placeholder="Alergias conocidas"></textarea>
+
+        <textarea placeholder="Medicamentos actuales"></textarea>
+
+        <textarea placeholder="Síntomas actuales"></textarea>
+
+        <select id="diseaseSelect">
+            <option value="">Seleccione enfermedad principal</option>
+
+            <option value="diabetes">Diabetes</option>
+            <option value="hipertension">Hipertensión</option>
+            <option value="asma">Asma</option>
+            <option value="cardiaca">Enfermedad Cardíaca</option>
+            <option value="cancer">Cáncer</option>
+            <option value="epilepsia">Epilepsia</option>
+            <option value="renal">Insuficiencia Renal</option>
+            <option value="obesidad">Obesidad</option>
+            <option value="covid">Secuelas de COVID-19</option>
+            <option value="otra">Otra</option>
+        </select>
+
+        <div id="dynamicQuestions"></div>
+
+        <h3>Accesibilidad</h3>
+
+        <select id="disabilitySelect">
+
+            <option value="">
+                ¿Tiene alguna discapacidad?
+            </option>
+
+            <option value="visual">
+                Discapacidad Visual
+            </option>
+
+            <option value="auditiva">
+                Discapacidad Auditiva
+            </option>
+
+            <option value="movilidad">
+                Movilidad Reducida
+            </option>
+
+            <option value="cognitiva">
+                Discapacidad Cognitiva
+            </option>
+
+            <option value="ninguna">
+                Ninguna
+            </option>
+
+        </select>
+
+        <div id="accessibilityNotice"></div>
+
+        <button type="submit">
+            Ingresar como Paciente
+        </button>
+
+    </form>
+
+    <!-- DOCTOR -->
+    <form id="doctorForm" class="hidden">
+
+        <h2>Ingreso de Doctor</h2>
+
+        <input type="text" placeholder="Nombre completo" required>
+
+        <input type="email" placeholder="Correo profesional" required>
+
+        <input type="text" placeholder="Número de licencia" required>
+
+        <input type="text" placeholder="Hospital o Clínica">
+
+        <input type="number" placeholder="Años de experiencia">
+
+        <select id="specialtySelect">
+
+            <option value="">
+                Especialidad
+            </option>
+
+            <option value="cardiologia">
+                Cardiología
+            </option>
+
+            <option value="neurologia">
+                Neurología
+            </option>
+
+            <option value="pediatria">
+                Pediatría
+            </option>
+
+            <option value="oncologia">
+                Oncología
+            </option>
+
+            <option value="psiquiatria">
+                Psiquiatría
+            </option>
+
+            <option value="traumatologia">
+                Traumatología
+            </option>
+
+            <option value="dermatologia">
+                Dermatología
+            </option>
+
+            <option value="ginecologia">
+                Ginecología
+            </option>
+
+        </select>
+
+        <select>
+            <option>
+                Disponibilidad
+            </option>
+
+            <option>
+                Tiempo Completo
+            </option>
+
+            <option>
+                Medio Tiempo
+            </option>
+
+            <option>
+                Guardias
+            </option>
+        </select>
+
+        <div id="doctorDynamic"></div>
+
+        <button type="submit">
+            Ingresar como Doctor
+        </button>
+
+    </form>
+
+</div>
+
+<script src="code.js"></script>
+
+</body>
+</html>
