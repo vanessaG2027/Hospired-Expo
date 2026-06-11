@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Términos y Condiciones - Hospired</title>
+  <style>
+    /* VARIABLES DE DISEÑO (Paleta Oficial Hospired) */
+    :root {
+      --hospired-blue-dark: #134074;   /* Azul Oscuro */
+      --hospired-teal: #4C9F80;        /* Verde/Teca */
+      --hospired-blue-light: #3D93C3;  /* Azul Claro */
+      --hospired-white: #FFFFFF;       /* Blanco */
+      --hospired-grey-light: #F4F6F9;  /* Gris Claro de Fondo */
+      --text-dark: #2A2F35;            /* Texto Principal */
+      --text-muted: #606870;           /* Texto Secundario */
+    }
+
+    /* ESTILOS GENERALES */
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text-dark);
+      background-color: var(--hospired-grey-light);
+      margin: 0;
+      padding: 0;
+      padding-top:120px;
+      line-height: 1.6;
+    }
+
+    /* ENCABEZADO DE LA PÁGINA */
+    .terms-hero {
+      background-color: var(--hospired-blue-dark);
+      color: var(--hospired-white);
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 5px solid var(--hospired-teal);
+    }
+
+    .terms-hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .terms-hero p {
+      margin: 10px 0 0 0;
+      font-size: 1.1rem;
+      color: var(--hospired-grey-light);
+      opacity: 0.9;
+    }
+
+    /* ESTRUCTURA PRINCIPAL (LAYOUT DOS COLUMNAS) */
+    .terms-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ÍNDICE INTERACTIVO LATERAL (STICKY) */
+    .terms-sidebar {
+      background-color: var(--hospired-white);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 20px;
+    }
+
+    .terms-sidebar h3 {
+      margin-top: 0;
+      color: var(--hospired-blue-dark);
+      font-size: 1.1rem;
+      border-bottom: 2px solid var(--hospired-grey-light);
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .terms-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .terms-nav li {
+      margin-bottom: 12px;
+    }
+
+    .terms-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: block;
+      transition: all 0.2s ease;
+      padding-left: 0;
+    }
+
+    .terms-nav a:hover, .terms-nav a.active {
+      color: var(--hospired-teal);
+      font-weight: bold;
+      padding-left: 5px;
+    }
+
+    /* CUERPO DEL CONTENIDO LEGAL */
+    .terms-content {
+      background-color: var(--hospired-white);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .terms-section {
+      margin-bottom: 40px;
+      scroll-margin-top: 30px; /* Margen para el anclaje del menú sticky */
+    }
+
+    .terms-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .terms-section h2 {
+      color: var(--hospired-blue-dark);
+      font-size: 1.6rem;
+      margin-top: 0;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .terms-section h2::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 24px;
+      background-color: var(--hospired-teal);
+      border-radius: 3px;
+    }
+
+    .terms-content p {
+      margin-bottom: 15px;
+      color: var(--text-dark);
+      text-align: justify;
+    }
+
+    .terms-content ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .terms-content li {
+      margin-bottom: 10px;
+    }
+
+    /* BLOQUE DE ALERTA INTERACTIVO (IMPORTANTE) */
+    .legal-alert {
+      background-color: #FFF3CD;
+      border-left: 5px solid #FFC107;
+      color: #856404;
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+    }
+
+    .legal-alert strong {
+      color: #533f03;
+    }
+
+    /* BOTÓN VOLVER AL INICIO */
+    .btn-back-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .btn-back {
+      display: inline-block;
+      background-color: var(--hospired-teal);
+      color: var(--hospired-white);
+      text-decoration: none;
+      padding: 12px 30px;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-back:hover {
+      background-color: #3b8468;
+    }
+
+    /* DISEÑO RESPONSIVO */
+    @media (max-width: 992px) {
+      .terms-container {
+        grid-template-columns: 1fr;
+        margin: 20px auto;
+      }
+      .terms-sidebar {
+        position: relative;
+        top: 0;
+      }
+      .terms-nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+      }
+      .terms-nav li { margin-bottom: 0; }
+      .terms-content { padding: 25px; }
+    }
+    
+
+      :root {
+            --color-primary:  #00A79D; 
+            --color-primary-dark:  #007F78; 
+            --color-border: #dfe5ef;
+            --color-surface: #ffffff;
+            --color-text: #1f2937;
+            --color-muted: #6b7280;
+            --shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        }
+
+        * { box-sizing: border-box; }
+
+        /* Inicio del diseño del menu */
+
+        .site-header {
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: var(--shadow);
+            min-height: 88px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .menu-shell {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 10px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .top-row {
+            display: grid;
+            grid-template-columns: auto minmax(240px, 1fr) auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand img {
+            display: block;
+            width: 96px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .search-wrap {
+            display: flex;
+            justify-self: center;
+            width: 100%;
+            max-width: 620px;
+            min-width: 0;
+        }
+
+        .search-form {
+            display: flex;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .search-form input[type="search"] {
+            flex: 1 1 auto;
+            min-width: 0;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px 0 0 6px;
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+
+        .search-form button {
+            padding: 10px 16px;
+            border: 1px solid #00A79D;
+            border-left: none;
+            border-radius: 0 6px 6px 0;
+            background: #00A79D;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .search-form button:hover {
+            background: #007F78;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-self: end;
+            white-space: nowrap;
+        }
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(180deg, #00A79D, #007F78);
+            flex-shrink: 0;
+        }
+
+        .account {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .account .name {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .account .hint {
+            font-size: 0.72rem;
+            color: #6b7280;
+        }
+
+        .secondary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hamburger {
+            position: relative;
+        }
+
+        .hamburger-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 12px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            background: #fff;
+            color: #1f2937;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .menu-panel {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 220px;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #dfe5ef;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .menu-panel.show {
+            display: flex;
+        }
+
+        .menu-item {
+            padding: 10px 12px;
+            text-decoration: none;
+            color: #1f2937;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.92rem;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            background: #f8fafc;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 9px 12px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            background: #00A79D;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: #00A79D;
+            border-color: #00A79D;
+        }
+
+        .btn:hover {
+            background: #007F78;
+        }
+
+        .btn.ghost:hover {
+            background: #00A79D;
+            color: #fff;
+        }
+
+        /* SECCION RESPONSIVE */
+        @media (max-width: 768px) {
+            .top-row {
+                grid-template-columns: auto 1fr;
+            }
+
+            .search-wrap {
+                grid-column: 1 / span 2;
+                justify-self: stretch;
+                order: 3;
+            }
+
+            .profile {
+                justify-self: end;
+            }
+
+            .secondary-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .actions {
+                width: 100%;
+            }
+        }
+  </style>
+</head>
+<body>
+
+    <header class="site-header">
+    <div class="menu-shell">
+
+        <nav class="top-row">
+
+            <a class="brand" href="#">
+                <img src="Hospired.logo.png" alt="Logo Hospired">
+            </a>
+
+            <div class="search-wrap">
+                <form class="search-form">
+                    <input type="search" placeholder="Buscar servicios, especialidades o doctores...">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">MJ</div>
+
+                <div class="account">
+                    <span class="name">Mi cuenta</span>
+                    <span class="hint">Perfil</span>
+                </div>
+            </div>
+
+        </nav>
+
+        <div class="secondary-row">
+
+            <div class="hamburger">
+
+                <button id="hamburgerBtn"
+                        class="hamburger-button"
+                        type="button">
+                    ☰ Menú
+                </button>
+
+                <div id="hamburgerMenu" class="menu-panel">
+                    <a class="menu-item" href="#">Laboratorios</a>
+                    <a class="menu-item" href="#">Clínicas</a>
+                    <a class="menu-item" href="#">Notificaciones</a>
+                    <a class="menu-item" href="#">Soporte y ayuda</a>
+                    <a class="menu-item" href="#">Accesibilidad</a>
+                </div>
+
+            </div>
+
+            <div class="actions">
+                <button class="btn">Mis citas</button>
+                <button class="btn ghost">Inicio</button>
+                <button class="btn">Reservar</button>
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
+  <div class="terms-hero">
+    <h1>Términos y Condiciones de Uso</h1>
+    <p>Última actualización: Junio de 2026</p>
+  </div>
+
+  <main class="terms-container">
+    
+    <aside class="terms-sidebar">
+      <h3>Índice del Documento</h3>
+      <ul class="terms-nav">
+        <li><a href="#general" class="active" onclick="setActive(this)">1. Generalidades</a></li>
+        <li><a href="#servicio" onclick="setActive(this)">2. Naturaleza del Servicio</a></li>
+        <li><a href="#usuarios" onclick="setActive(this)">3. Cuentas y Responsabilidad</a></li>
+        <li><a href="#inclusion" onclick="setActive(this)">4. Inclusión y Accesibilidad</a></li>
+        <li><a href="#privacidad" onclick="setActive(this)">5. Privacidad de Datos</a></li>
+        <li><a href="#cancelaciones" onclick="setActive(this)">6. Cancelaciones y Citas</a></li>
+        <li><a href="#ley" onclick="setActive(this)">7. Ley Aplicable y Contacto</a></li>
+      </ul>
+    </aside>
+
+    <section class="terms-content">
+      
+      <div class="legal-alert">
+        <strong>⚠️ AVISO DE EMERGENCIA IMPORTANTE:</strong> Hospired <strong>NO es un proveedor de servicios médicos ni atiende urgencias de salud</strong>. Si usted o la persona por la que está consultando se encuentra en una situación de emergencia médica de riesgo vital, por favor llame inmediatamente a los servicios de emergencia de El Salvador (911, SEM 132) o asista al centro asistencial más cercano.
+      </div>
+
+      <div id="general" class="terms-section">
+        <h2>1. Generalidades e Información Legal</h2>
+        <p>Bienvenido a Hospired. El presente documento regula los términos y condiciones de uso bajo los cuales cualquier persona natural o jurídica puede acceder, navegar y utilizar nuestra plataforma web de intermediación de citas médicas en la República de El Salvador.</p>
+        <p>Al hacer uso de nuestro sitio web, usted acepta de manera expresa, informada y sin reservas todos los puntos descritos en este documento. Si no está de acuerdo con estas políticas, deberá abstenerse de utilizar la plataforma.</p>
+      </div>
+
+      <div id="servicio" class="terms-section">
+        <h2>2. Naturaleza del Servicio (Intermediación)</h2>
+        <p>Hospired opera única y exclusivamente como un **intermediario tecnológico** entre los pacientes (usuarios finales) y los proveedores de salud aliados (clínicas, hospitales, especialistas independientes y laboratorios clínicos).</p>
+        <p>En consecuencia, el usuario reconoce y acepta que:</p>
+        <ul>
+          <li>Hospired no provee diagnósticos, recetas, tratamientos ni intervenciones médicas directas.</li>
+          <li>La relación médica-paciente se constituye de forma privada y directa entre el usuario y el centro médico seleccionado.</li>
+          <li>No nos hacemos responsables por negligencias médicas, diagnósticos erróneos o la calidad técnica de la atención brindada por los socios sanitarios, aunque velamos por validar sus certificaciones previamente.</li>
+        </ul>
+      </div>
+
+      <div id="usuarios" class="terms-section">
+        <h2>3. Obligaciones de los Usuarios</h2>
+        <p>Al utilizar nuestros servicios de agendamiento, el usuario se compromete formalmente a:</p>
+        <ul>
+          <li>Brindar datos de identificación, contacto y demográficos reales, precisos y actualizados.</li>
+          <li>Asistir puntualmente a los turnos y horarios de consultas médicas presenciales o de telemedicina reservados.</li>
+          <li>Hacer un uso correcto de los canales de pago y respetar los precios estipulados por los proveedores asociados.</li>
+        </ul>
+      </div>
+
+      <div id="inclusion" class="terms-section">
+        <h2>4. Compromiso de Inclusión y Accesibilidad</h2>
+        <p>Fieles a nuestra misión, Hospired ha sido diseñado siguiendo estándares de accesibilidad digital para garantizar la autonomía de personas con discapacidades físicas, visuales, auditivas, cognitivas o psicosociales.</p>
+        <p>Tanto los usuarios como las entidades médicas afiliadas se comprometen a interactuar bajo principios de respeto mutuo, no discriminación y dignidad humana. Hospired se reserva el derecho de dar de baja de forma inmediata a usuarios o centros de salud que incurran en prácticas discriminatorias o comentarios ofensivos dentro del portal.</p>
+      </div>
+
+      <div id="privacidad" class="terms-section">
+        <h2>5. Privacidad y Protección de Datos Personales</h2>
+        <p>La recolección y el procesamiento de la información clínica, datos sensibles y de contacto se rige bajo estrictas normativas de confidencialidad y los estándares de la legislación vigente en El Salvador.</p>
+        <p>Hospired nunca comercializará, transferirá ni expondrá expedientes médicos ni historiales de citas a terceros sin el consentimiento expreso e informado del paciente, salvo requerimiento judicial explícito de las autoridades de la República.</p>
+      </div>
+
+      <div id="cancelaciones" class="terms-section">
+        <h2>6. Políticas de Cancelación y Reagendamiento</h2>
+        <p>Cada hospital, clínica o laboratorio aliado cuenta con sus propias políticas de tiempo límite para cancelaciones o modificaciones de citas sin costo. El usuario podrá visualizar estas reglas específicas antes de confirmar cada reserva.</p>
+        <p>Las inasistencias reiteradas y no justificadas por parte del usuario facultarán a Hospired a suspender temporal o definitivamente la cuenta del usuario para proteger la eficiencia operativa de las agendas médicas.</p>
+      </div>
+
+      <div id="ley" class="terms-section">
+        <h2>7. Ley Aplicable, Jurisdicción y Contacto</h2>
+        <p>Estos Términos y Condiciones se rigen e interpretan bajo las leyes de la República de El Salvador. Cualquier disputa o desacuerdo legal será dirimido ante los tribunales correspondientes de la ciudad de San Salvador.</p>
+        <p>Para resolver dudas, reclamos corporativos o aclaraciones respecto a este documento, puede comunicarse de manera directa mediante nuestros canales institucionales oficiales:</p>
+        <ul>
+          <li><strong>Dirección:</strong> San Salvador, El Salvador.</li>
+          <li><strong>Correo Electrónico de Soporte Legal:</strong> legal@hospired.com</li>
+          <li><strong>Teléfono de Atención:</strong> +503 2200-0000</li>
+        </ul>
+
+        <div class="btn-back-container">
+          <a href="#" class="btn-back">Volver al Inicio del Sitio</a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    function setActive(element) {
+      // Remueve la clase activa de todos los enlaces del índice
+      const links = document.querySelectorAll('.terms-nav a');
+      links.forEach(link => link.classList.remove('active'));
+      
+      // Agrega la clase activa únicamente al que recibió el clic
+      element.classList.add('active');
+    }
+
+     const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const readAloudBtn = document.getElementById('readAloudBtn');
+        let speechUtterance = null;
+
+        hamburgerBtn.addEventListener('click', () => {
+            const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+            hamburgerBtn.setAttribute('aria-expanded', String(!expanded));
+            hamburgerMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!hamburgerMenu.contains(event.target) && !hamburgerBtn.contains(event.target)) {
+                hamburgerMenu.classList.remove('show');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+  </script>
+
+</body>
+</html>

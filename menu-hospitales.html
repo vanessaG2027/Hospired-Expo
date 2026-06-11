@@ -1,0 +1,1476 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Hospired - Solo Footer</title>
+    <style>
+       :root{
+--color-primary:#00A79D;
+--color-primary-dark:#007F78;
+--color-border:#dfe5ef;
+--color-surface:#fff;
+--color-text:#1f2937;
+--color-muted:#6b7280;
+--bg-dark-blue:#0f3f5d;
+--shadow:0 6px 18px rgba(15,23,42,.08)
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+color:var(--color-text);
+padding-top:120px;
+background:#f5f5f5
+}
+
+/* HEADER */
+
+.site-header{
+background:var(--color-surface);
+border-bottom:1px solid var(--color-border);
+box-shadow:var(--shadow);
+min-height:88px;
+position:fixed;
+top:0;
+left:0;
+right:0;
+z-index:1000
+}
+
+.menu-shell{
+max-width:1180px;
+margin:auto;
+padding:10px 18px;
+display:flex;
+flex-direction:column;
+gap:10px
+}
+
+.top-row{
+display:grid;
+grid-template-columns:auto minmax(240px,1fr) auto;
+align-items:center;
+gap:16px
+}
+
+.brand{
+display:inline-flex;
+align-items:center;
+text-decoration:none
+}
+
+.brand img{
+display:block;
+width:96px;
+height:auto;
+object-fit:contain
+}
+
+.search-wrap{
+display:flex;
+justify-self:center;
+width:100%;
+max-width:620px
+}
+
+.search-form{
+display:flex;
+width:100%
+}
+
+.search-form input{
+flex:1;
+padding:10px 12px;
+border:1px solid #cbd5e1;
+border-radius:6px 0 0 6px;
+font-size:.95rem
+}
+
+.search-form button{
+padding:10px 16px;
+border:1px solid var(--color-primary);
+border-left:none;
+border-radius:0 6px 6px 0;
+background:var(--color-primary);
+color:#fff;
+cursor:pointer;
+font-weight:700
+}
+
+.search-form button:hover{
+background:var(--color-primary-dark)
+}
+
+.profile{
+display:flex;
+align-items:center;
+gap:10px;
+justify-self:end
+}
+
+.avatar{
+width:42px;
+height:42px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+color:#fff;
+background:linear-gradient(180deg,var(--color-primary),var(--color-primary-dark))
+}
+
+.account{
+display:flex;
+flex-direction:column;
+gap:2px
+}
+
+.account .name{
+font-weight:700;
+font-size:.95rem
+}
+
+.account .hint{
+font-size:.72rem;
+color:var(--color-muted)
+}
+
+.secondary-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px
+}
+
+.hamburger{
+position:relative
+}
+
+.hamburger-button{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:9px 12px;
+border-radius:6px;
+border:1px solid #cbd5e1;
+background:#fff;
+cursor:pointer;
+font-weight:700
+}
+
+.menu-panel{
+display:none;
+position:absolute;
+top:calc(100% + 8px);
+left:0;
+min-width:220px;
+flex-direction:column;
+background:#fff;
+border:1px solid var(--color-border);
+border-radius:8px;
+box-shadow:var(--shadow);
+overflow:hidden;
+z-index:1000
+}
+
+.menu-panel.show{
+display:flex
+}
+
+.menu-item{
+padding:10px 12px;
+text-decoration:none;
+color:var(--color-text);
+border-bottom:1px solid #f1f5f9;
+font-size:.92rem
+}
+
+.menu-item:last-child{
+border:none
+}
+
+.menu-item:hover{
+background:#f8fafc
+}
+
+.actions{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap
+}
+
+.btn{
+padding:9px 12px;
+border-radius:6px;
+border:none;
+background:var(--color-primary);
+color:#fff;
+font-weight:700;
+cursor:pointer
+}
+
+.btn:hover{
+background:var(--color-primary-dark)
+}
+
+.btn.ghost{
+background:transparent;
+border:1px solid var(--color-primary);
+color:var(--color-primary)
+}
+
+.btn.ghost:hover{
+background:var(--color-primary);
+color:#fff
+}
+
+/* FOOTER */
+
+.site-footer{
+background:var(--bg-dark-blue);
+color:#fff;
+padding:60px 20px;
+margin-top:40px
+}
+
+.footer-content{
+max-width:1100px;
+margin:auto
+}
+
+.footer-links-container{
+display:flex;
+justify-content:center;
+gap:80px;
+flex-wrap:wrap
+}
+
+.footer-column{
+display:flex;
+flex-direction:column;
+gap:12px
+}
+
+.footer-column h4{
+margin:0 0 10px;
+color:var(--color-primary);
+font-size:1.2rem;
+text-transform:uppercase;
+letter-spacing:1px
+}
+
+.footer-column a{
+color:#e9ecef;
+text-decoration:none;
+display:inline-block;
+transition:.3s
+}
+
+.footer-column a:hover{
+color:var(--color-primary);
+transform:translateX(5px)
+}
+
+.social-icons-container{
+display:flex;
+gap:16px
+}
+
+.imagen{
+display:flex;
+align-items:center;
+justify-content:center
+}
+
+.imagen img{
+width:32px;
+height:auto;
+transition:.3s
+}
+
+.imagen:hover img{
+transform:scale(1.15)
+}
+
+.footer-bottom{
+text-align:center;
+padding-top:40px;
+margin-top:40px;
+border-top:1px solid rgba(255,255,255,.1);
+font-size:.85rem;
+color:#cbd5e1
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.top-row{
+grid-template-columns:auto 1fr
+}
+
+.search-wrap{
+grid-column:1/span 2;
+order:3
+}
+
+.secondary-row{
+flex-direction:column;
+align-items:flex-start
+}
+
+.actions{
+width:100%
+}
+
+.footer-content{
+text-align:center
+}
+
+.footer-links-container{
+flex-direction:column;
+align-items:center;
+gap:40px
+}
+
+.footer-column a:hover{
+transform:none
+}
+
+.social-icons-container{
+justify-content:center
+}
+
+.imagen img{
+width:42px
+}
+
+}
+
+:root {
+    --hospired-blue-dark: #134074;   /* Azul Oscuro de la barra 1 */
+    --hospired-teal: #4C9F80;        /* Verde/Teal de la barra 2 */
+    --hospired-blue-light: #3D93C3;  /* Azul Claro de la barra 3 */
+    --hospired-white: #FFFFFF;       /* Blanco de la barra 4 */
+    --hospired-grey-light: #EAEAEA;  /* Gris Claro de la barra 5 */
+    --text-dark: #222222;
+  }
+
+  /* Contenedor General */
+  .hospired-main-content {
+    font-family: Arial, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--hospired-white);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  /* --- 1. ESTILOS DEL CARRUSEL --- */
+  .carousel-container {
+    position: relative;
+    max-width: 100%;
+    height: 550px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #000;
+  }
+
+  .carousel-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(55%);
+  }
+
+  .carousel-caption {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    right: 10%;
+    color: var(--hospired-white);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    animation: fadeInUp 1s ease;
+  }
+
+  .carousel-caption h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--hospired-white);
+  }
+
+  .carousel-caption p {
+    font-size: 1.3rem;
+    max-width: 700px;
+  }
+
+  /* Botones de navegación del Carrusel */
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(19, 64, 116, 0.6);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s;
+  }
+
+  .carousel-control:hover {
+    background-color: var(--hospired-blue-dark);
+  }
+
+  .carousel-control.prev { left: 20px; }
+  .carousel-control.next { right: 20px; }
+
+  /* Puntos Indicadores */
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .dot.active, .dot:hover {
+    background-color: var(--hospired-blue-light);
+  }
+
+  /* --- 2. ESTILOS DE QUIÉNES SOMOS --- */
+  .about-section {
+    background-color: var(--hospired-white);
+    text-align: center;
+  }
+
+  .section-title-wrapper {
+    margin-bottom: 30px;
+  }
+
+  .subtitle {
+    color: var(--hospired-teal);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    color: var(--hospired-blue-dark);
+    margin: 5px 0 15px 0;
+  }
+
+  .title-line {
+    width: 70px;
+    height: 4px;
+    background-color: var(--hospired-teal);
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+
+  .about-description {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+    color: #444;
+  }
+
+  /* Grid de Tarjetas de Características */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .feature-card {
+    background-color: var(--hospired-white);
+    border: 1px solid var(--hospired-grey-light);
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(19, 64, 116, 0.1);
+    border-color: var(--hospired-blue-light);
+  }
+
+  .feature-icon-box {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--hospired-teal);
+  }
+
+  .feature-card h3 {
+    color: var(--hospired-blue-dark);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #666;
+  }
+
+  /* --- 3. ESTILOS DE MISIÓN Y VISIÓN --- */
+  .mv-section {
+    background-color: var(--hospired-grey-light);
+    padding: 40px 0;
+  }
+
+  .mv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+  }
+
+  .mv-card {
+    background-color: var(--hospired-white);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-top: 6px solid var(--hospired-blue-dark);
+    transition: border-color 0.3s ease;
+  }
+
+  .vision-card {
+    border-top: 6px solid var(--hospired-teal);
+  }
+
+  .mv-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .mv-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+  }
+
+  .mv-card h2 {
+    font-size: 1.8rem;
+    color: var(--hospired-blue-dark);
+    margin: 0;
+  }
+
+  .vision-card h2 {
+    color: var(--hospired-teal);
+  }
+
+  .mv-card p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 15px;
+  }
+
+  .mv-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* --- ANIMACIONES Y RESPONSIVO --- */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .carousel-container { height: 400px; }
+    .carousel-caption h2 { font-size: 2rem; }
+    .carousel-caption p { font-size: 1rem; }
+    .mv-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 2rem; }
+  }
+
+  :root {
+    --form-bg: #FFFFFF;
+    --input-border: #CCCCCC;
+    --transition-speed: 0.3s;
+  }
+
+  /* Sección de Afiliación */
+  .affiliation-section {
+    background-color: var(--hospired-blue-dark); /* Fondo azul oscuro corporativo */
+    color: var(--hospired-white);
+    padding: 30px 0;
+  }
+
+  /* Grid Layout para dividir Info y Formulario */
+  .affiliate-container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  .affiliate-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Lista de beneficios internos */
+  .benefits-list {
+    margin-bottom: 40px;
+  }
+
+  .benefit-inline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .benefit-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+    line-height: 1;
+  }
+
+  .benefit-inline-item h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.15rem;
+    color: var(--hospired-blue-light);
+  }
+
+  .benefit-inline-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--hospired-grey-light);
+  }
+
+  /* Caja de contacto directo */
+  .direct-contact-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--hospired-teal);
+    padding: 20px;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .direct-contact-box h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--hospired-white);
+  }
+
+  .direct-contact-box p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: var(--hospired-grey-light);
+  }
+
+  /* Contenedor del Formulario */
+  .affiliate-form-box {
+    background-color: var(--form-bg);
+    color: var(--text-dark);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  .affiliate-form-box h3 {
+    margin-top: 0;
+    color: var(--hospired-blue-dark);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .affiliate-form-box p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+
+  /* Elementos del Formulario */
+  .form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--hospired-blue-dark);
+    margin-bottom: 6px;
+  }
+
+  .form-group input, 
+  .form-group select, 
+  .form-group textarea {
+    font-family: Arial, sans-serif;
+    padding: 12px;
+    font-size: 0.95rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: all var(--transition-speed) ease;
+    outline: none;
+  }
+
+  .form-group input:focus, 
+  .form-group select:focus, 
+  .form-group textarea:focus {
+    border-color: var(--hospired-blue-light);
+    background-color: var(--hospired-white);
+    box-shadow: 0 0 8px rgba(61, 147, 195, 0.2);
+  }
+
+  /* Botón Enviar */
+  .btn-submit {
+    width: 100%;
+    background-color: var(--hospired-teal);
+    color: var(--hospired-white);
+    border: none;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, transform 0.2s;
+    margin-top: 10px;
+  }
+
+  .btn-submit:hover {
+    background-color: #3b8468;
+    transform: translateY(-2px);
+  }
+
+  .btn-submit:active {
+    transform: translateY(0);
+  }
+
+  /* Estilos para el estado de Éxito dinámico */
+  .success-message-box {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .success-icon {
+    font-size: 4rem;
+    color: var(--hospired-teal);
+    margin-bottom: 20px;
+  }
+
+  /* Animación simple */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Responsivo para móviles */
+  @media (max-width: 992px) {
+    .affiliate-container-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .affiliate-form-box {
+      padding: 30px 20px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+
+  /* Contenedor de fondo oscuro y translúcido */
+  .hospired-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 64, 116, 0.4); /* Tu azul oscuro con transparencia */
+    backdrop-filter: blur(8px); /* Efecto difuminado moderno detras del pop-up */
+    z-index: 99999; /* Asegura que esté por encima de menús, sliders y footers */
+    display: none; /* Se controla dinámicamente con JavaScript */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeInModal 0.4s ease forwards;
+  }
+
+  /* Caja blanca del Pop-up */
+  .hospired-modal-box {
+    background-color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    max-width: 550px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transform: translateY(-30px);
+    opacity: 0;
+    animation: slideDownModal 0.4s 0.1s ease forwards;
+  }
+
+  /* Encabezado */
+  .modal-header {
+    background-color: #134074; /* Azul oscuro */
+    color: #FFFFFF;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .modal-logo-icon {
+    font-size: 1.8rem;
+  }
+
+  .modal-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+  /* Cuerpo del texto */
+  .modal-body {
+    padding: 25px;
+    color: #333333;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .modal-body p {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  /* Lista de puntos clave */
+  .terms-list {
+    margin: 0 0 20px 0;
+    padding-left: 20px;
+  }
+
+  .terms-list li {
+    margin-bottom: 12px;
+    color: #444444;
+  }
+
+  .terms-list strong {
+    color: #134074; /* Resalta en azul oscuro */
+  }
+
+  .terms-note {
+    font-size: 0.85rem;
+    color: #666666;
+    background-color: #EAEAEA; /* Gris claro */
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 0 !important;
+    border-left: 4px solid #4C9F80; /* Detalle verde/teca */
+  }
+
+  /* Acciones / Botones */
+  .modal-footer {
+    background-color: #EAEAEA; /* Gris claro */
+    padding: 15px 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+  }
+
+  .btn-modal {
+    font-family: Arial, sans-serif;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  /* Botón Rechazar */
+  .btn-decline {
+    background-color: transparent;
+    color: #666666;
+    border: 1px solid #CCCCCC;
+  }
+
+  .btn-decline:hover {
+    background-color: #DBDBDB;
+    color: #222222;
+  }
+
+  /* Botón Aceptar */
+  .btn-accept {
+    background-color: #4C9F80; /* Verde/Teca de tu paleta */
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(76, 159, 128, 0.3);
+  }
+
+  .btn-accept:hover {
+    background-color: #3b8468;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(76, 159, 128, 0.4);
+  }
+
+  .btn-accept:active {
+    transform: translateY(0);
+  }
+
+  /* ANIMACIONES INTERACTIVAS */
+  @keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideDownModal {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Cierre suave animado mediante JS clase intermedia */
+  .hospired-modal-overlay.fade-out {
+    animation: fadeOutModal 0.3s ease forwards;
+  }
+
+  @keyframes fadeOutModal {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+    </style>
+</head>
+<body>
+    <div id="termsModal" class="hospired-modal-overlay">
+  <div class="hospired-modal-box">
+    
+    <div class="modal-header">
+      <span class="modal-logo-icon">⚖️</span>
+      <h2>Términos y Condiciones Básicos</h2>
+    </div>
+
+    <div class="modal-body">
+      <p>Bienvenido a <strong>Hospired El Salvador</strong>. Antes de utilizar nuestra plataforma de intermediación médica, por favor lee y acepta nuestras condiciones clave:</p>
+      
+      <ul class="terms-list">
+        <li><strong>Rol de Hospired:</strong> Somos un intermediario tecnológico. Conectamos pacientes con proveedores de salud; no prestamos servicios médicos directos ni atendemos emergencias.</li>
+        <li><strong>Privacidad y Datos:</strong> Nos comprometemos a proteger tus datos personales y de salud bajo estrictos estándares de seguridad y confidencialidad.</li>
+        <li><strong>Uso Responsable:</strong> Te comprometes a brindar información real al agendar tus citas y respetar las políticas de asistencia de las clínicas asociadas.</li>
+      </ul>
+      
+      <p class="terms-note">Al hacer clic en "Aceptar", declaras ser mayor de edad y estás de acuerdo con el tratamiento de tus datos para la gestión de tus citas.</p>
+    </div>
+
+    <div class="modal-footer">
+      <button onclick="declineTerms()" class="btn-modal btn-decline">Rechazar</button>
+      <button onclick="acceptTerms()" class="btn-modal btn-accept">Aceptar y Continuar</button>
+    </div>
+
+  </div>
+</div>
+        <header class="site-header">
+    <div class="menu-shell">
+
+        <nav class="top-row">
+
+            <a class="brand" href="#inicio">
+                <img src="Hospired.logo.png" alt="Logo Hospired">
+            </a>
+
+            <div class="search-wrap">
+                <form class="search-form" onsubmit="event.preventDefault();">
+                    <input type="search" placeholder="Buscar servicios, especialidades o doctores...">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">MJ</div>
+                <div class="account">
+                    <span class="name">Mi cuenta</span>
+                    <span class="hint">Perfil</span>
+                </div>
+            </div>
+
+        </nav>
+
+        <div class="secondary-row">
+
+            <div class="hamburger">
+
+                <button
+                    id="hamburgerBtn"
+                    class="hamburger-button"
+                    type="button"
+                    aria-expanded="false">
+                    ☰ Menú
+                </button>
+
+                <div id="hamburgerMenu" class="menu-panel">
+                    <a class="menu-item" href="#servicios">Laboratorios</a>
+                    <a class="menu-item" href="#clinica">Clínicas</a>
+                    <a class="menu-item" href="#notificaciones">Notificaciones</a>
+                    <a class="menu-item" href="#soporte">Soporte y ayuda</a>
+                    <a class="menu-item" href="#accesibilidad">Ajustes de accesibilidad</a>
+                </div>
+
+            </div>
+
+            <div class="actions">
+                <button class="btn" onclick="location.href='#mis-citas'">Mis citas</button>
+                <button class="btn ghost" onclick="location.href='#inicio'">Inicio</button>
+                <button class="btn" onclick="location.href='#reservar'">Reservar</button>
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
+<main class="hospired-main-content">
+  
+  <section class="carousel-container">
+    <div class="carousel-slider">
+      <div class="carousel-slide active">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80" alt="Hospital Moderno Hospired">
+        <div class="carousel-caption">
+          <h2>Tu salud, más cerca y accesible</h2>
+          <p>Conectamos pacientes con los mejores centros médicos de El Salvador.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80" alt="Consulta Médica Profesional">
+        <div class="carousel-caption">
+          <h2>Atención Médica Sin Barreras</h2>
+          <p>Diseñado especialmente para garantizar la inclusión y autonomía de todos.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1600&q=80" alt="Laboratorio Clínico Avanzado">
+        <div class="carousel-caption">
+          <h2>Reservas Rápidas y Seguras</h2>
+          <p>Encuentra consultas y exámenes clínicos según tu ubicación y presupuesto.</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+
+    <div class="carousel-dots">
+      <span class="dot active" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="subtitle">Conócenos</span>
+        <h2 class="section-title">¿Quiénes Somos?</h2>
+        <div class="title-line"></div>
+      </div>
+      <p class="about-description">
+        <strong>Hospired</strong> es una plataforma digital innovadora que actúa como intermediario de citas médicas en El Salvador. Conectamos de forma rápida, segura y accesible a los pacientes con clínicas, hospitales y laboratorios cercanos. Nos encargamos de facilitar la búsqueda personalizada por ubicación, precio y, primordialmente, por <strong>necesidades específicas de accesibilidad</strong>. 
+      </p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">🔍</div>
+          <h3>Búsqueda Inteligente</h3>
+          <p>Filtra servicios de salud por cercanía, costos y especialidades en segundos.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box">♿</div>
+          <h3>Inclusión Total</h3>
+          <p>Experiencia optimizada para personas con discapacidades visuales, auditivas, físicas o cognitivas.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box">🛡️</div>
+          <h3>Socios Verificados</h3>
+          <p>Garantizamos información confiable sobre horarios, certificaciones y calidad de servicio.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box">💼</div>
+          <h3>Gestión Eficiente</h3>
+          <p>Ayudamos a los proveedores de salud a optimizar agendas tanto presenciales como remotas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mv-section">
+    <div class="container mv-grid">
+      <div class="mv-card mission-card">
+        <div class="mv-header">
+          <div class="mv-icon"></div>
+          <h2>Nuestra Misión</h2>
+        </div>
+        <p>Hospired existe para eliminar las barreras que impiden el acceso a la salud en El Salvador.</p>
+        <p>Somos una plataforma digital que conecta a las personas con clínicas, hospitales y laboratorios cercanos, confiables y asequibles, facilitando la búsqueda y agendamiento de consultas y exámenes médicos.</p>
+        
+      </div>
+
+      <div class="mv-card vision-card">
+        <div class="mv-header">
+          <div class="mv-icon"></div>
+          <h2>Nuestra Visión</h2>
+        </div>
+        <p>Ser la plataforma de salud más accesible e inclusiva de El Salvador, reconocida nacionalmente por garantizar que toda persona, sin importar sus capacidades o condición económica, pueda encontrar y recibir atención médica de calidad cerca de su hogar, sin barreras físicas, tecnológicas o de información.</p>
+        <p>Aspiramos a ser un referente regional que demuestre que la salud digna y accesible es un derecho real y alcanzable para todos los salvadoreños.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="affiliation-section">
+  <div class="container affiliate-container-grid">
+    
+    <div class="affiliate-info-box">
+      <div class="section-title-wrapper" style="text-align: left;">
+        <span class="subtitle">Para Proveedores de Salud</span>
+        <h2 class="section-title" style="color: var(--hospired-white);">¿Eres una clínica, hospital o laboratorio?</h2>
+        <div class="title-line" style="margin: 0; background-color: var(--hospired-blue-light);"></div>
+      </div>
+      
+      <p class="affiliate-text">
+        Únete a la red médica más inclusiva y accesible de El Salvador. Al afiliarte a <strong>Hospired</strong>, optimizas la gestión de tus citas, reduces el ausentismo y abres tus puertas a miles de pacientes que buscan atención médica confiable y adaptada a sus necesidades.
+      </p>
+
+      <div class="benefits-list">
+        <div class="benefit-inline-item">
+          <span class="benefit-icon">📈</span>
+          <div>
+            <h4>Mayor Visibilidad</h4>
+            <p>Posiciona tus servicios ante pacientes en tu zona geográfica.</p>
+          </div>
+        </div>
+        <div class="benefit-inline-item">
+          <span class="benefit-icon">📅</span>
+          <div>
+            <h4>Gestión de Agendas</h4>
+            <p>Optimiza tus horarios para consultas presenciales o telemedicina.</p>
+          </div>
+        </div>
+        <div class="benefit-inline-item">
+          <span class="benefit-icon">🤝</span>
+          <div>
+            <h4>Compromiso Inclusivo</h4>
+            <p>Certifica tus instalaciones en accesibilidad y destaca tu valor social.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="direct-contact-box">
+        <h3>Contacto Directo</h3>
+        <p><strong>📍 Dirección:</strong> San Salvador, El Salvador.</p>
+        <p><strong>📧 Correo Corporativo:</strong> afiliados@hospired.com</p>
+        <p><strong>📞 Teléfono / WhatsApp:</strong> +503 2200-0000</p>
+      </div>
+    </div>
+
+    <div class="affiliate-form-box" id="formContainer">
+      <h3>Formulario de Pre-Afiliación</h3>
+      <p>Completa los datos de tu institución y nuestro equipo te contactará en menos de 24 horas.</p>
+      
+      <form id="hospiredAffiliationForm" onsubmit="submitAffiliation(event)">
+        <div class="form-group">
+          <label for="instName">Nombre de la Institución *</label>
+          <input type="text" id="instName" required placeholder="Ej. Hospital San Rafael, Clínica Médica...">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="instType">Tipo de Centro *</label>
+            <select id="instType" required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="hospital">Hospital</option>
+              <option value="clinica">Clínica Especializada</option>
+              <option value="laboratorio">Laboratorio Clínico</option>
+              <option value="farmacia">Centro de Diagnóstico / Imagen</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="instLocation">Ubicación (Departamento) *</label>
+            <input type="text" id="instLocation" required placeholder="Ej. San Salvador, Santa Ana...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contactName">Nombre del Representante / Contacto *</label>
+          <input type="text" id="contactName" required placeholder="Ej. Dr. Juan Pérez / Licda. María Gómez">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contactEmail">Correo Electrónico *</label>
+            <input type="email" id="contactEmail" required placeholder="ejemplo@institucion.com">
+          </div>
+          <div class="form-group">
+            <label for="contactPhone">Teléfono de Contacto *</label>
+            <input type="tel" id="contactPhone" required placeholder="Ej. 7000-0000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="instMessage">Mensaje o Detalles de Accesibilidad (Opcional)</label>
+          <textarea id="instMessage" rows="3" placeholder="Cuéntanos brevemente sobre tus servicios o si cuentas con rampas, personal de señas, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Enviar Solicitud de Afiliación</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-links-container">
+
+            <div class="footer-column">
+                <h4>Nosotros</h4>
+                <a href="#">¿Quiénes somos?</a>
+                <a href="#">Nuestra Misión</a>
+                <a href="#">Nuestra Visión</a>
+                <a href="#">Función</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Ayuda y Legal</h4>
+                <a href="#">Soporte</a>
+                <a href="#">Ayuda urgente</a>
+                <a href="/terminos.html">Términos y condiciones</a>
+                <a href="#">Política de privacidad</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Número de teléfono</h4>
+                <a href="tel:22222222">2222 - 2222</a>
+                <a href="tel:23237898">2323 - 7898</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Redes sociales</h4>
+
+                <div class="social-icons-container">
+
+                    <a href="#" class="imagen">
+                        <img src="/img/instagram-icon-logo-free-png.webp" alt="Instagram">
+                    </a>
+
+                    <a href="#" class="imagen">
+                        <img src="/img/facebook-logo-icon-free-png.webp" alt="Facebook">
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2026 Hospired. Todos los derechos reservados.
+    </div>
+
+</footer>
+
+<script>
+  let slideIndex = 0;
+  let slides = document.getElementsByClassName("carousel-slide");
+  let dots = document.getElementsByClassName("dot");
+  let slideTimer;
+
+  function showSlides(n) {
+    if (n >= slides.length) { slideIndex = 0; }
+    if (n < 0) { slideIndex = slides.length - 1; }
+    
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].classList.remove("active");
+      dots[i].classList.remove("active");
+    }
+    
+    slides[slideIndex].classList.add("active");
+    dots[slideIndex].classList.add("active");
+  }
+
+  function moveSlide(n) {
+    clearInterval(slideTimer); // Resetea el tiempo al hacer clic manual
+    slideIndex += n;
+    showSlides(slideIndex);
+    autoPlay();
+  }
+
+  function currentSlide(n) {
+    clearInterval(slideTimer);
+    slideIndex = n;
+    showSlides(slideIndex);
+    autoPlay();
+  }
+
+  function autoPlay() {
+    slideTimer = setInterval(() => {
+      slideIndex++;
+      showSlides(slideIndex);
+    }, 5000); // Cambia de imagen cada 5 segundos
+  }
+
+  // Inicializar carrusel automatizado
+  autoPlay();
+
+  // Para la parte de entidades
+  function submitAffiliation(event) {
+    event.preventDefault(); // Evita que la página se recargue por defecto
+    
+    const formContainer = document.getElementById('formContainer');
+    const button = event.target.querySelector('.btn-submit');
+    
+    // Cambia el texto del botón simulando carga
+    button.innerText = "Enviando solicitud...";
+    button.disabled = true;
+    button.style.opacity = "0.7";
+
+    // Simula una petición de servidor de 1.5 segundos
+    setTimeout(() => {
+      // Reemplaza dinámicamente el contenido del formulario por un mensaje de éxito atractivo
+      formContainer.innerHTML = `
+        <div class="success-message-box">
+          <div class="success-icon">🎉</div>
+          <h3 style="color: var(--hospired-blue-dark); margin-bottom: 15px;">¡Solicitud Recibida Con Éxito!</h3>
+          <p style="font-size: 1.05rem; color: #444;">
+            Gracias por querer formar parte de la red de <strong>Hospired</strong>. Hemos registrado los datos de tu institución correctamente.
+          </p>
+          <p style="font-size: 0.95rem; color: #666; margin-top: 10px;">
+            Un asesor especializado de nuestro equipo médico se pondrá en contacto al correo o teléfono proporcionado en un plazo máximo de 24 horas hábiles.
+          </p>
+          <button onclick="resetFormSimulation()" class="btn-submit" style="background-color: var(--hospired-blue-dark); margin-top: 25px; width: auto; padding: 10px 25px;">Enviar otra solicitud</button>
+        </div>
+      `;
+    }, 1500);
+  }
+
+  // Permite recargar el formulario si el usuario quiere simularlo otra vez
+  function resetFormSimulation() {
+    location.reload();
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("termsModal");
+
+    // Revisa si el usuario ya aceptó previamente los términos en este navegador
+    const hasAccepted = localStorage.getItem("hospiredTermsAccepted");
+
+    if (!hasAccepted) {
+      // Si no existe el registro, muestra el pop-up con un diseño flex
+      modal.style.display = "flex";
+      // Bloquea el scroll del sitio de fondo para forzar la interacción inclusiva
+      document.body.style.overflow = "hidden";
+    }
+  });
+
+  // Función al dar clic en "Aceptar"
+  function acceptTerms() {
+    const modal = document.getElementById("termsModal");
+    
+    // Guarda la bandera de aceptación permanentemente
+    localStorage.setItem("hospiredTermsAccepted", "true");
+    
+    // Ejecuta la animación de salida suave
+    modal.classList.add("fade-out");
+    
+    setTimeout(() => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto"; // Devuelve el scroll a la página
+    }, 300);
+  }
+
+  // Función al dar clic en "Rechazar"
+  function declineTerms() {
+    // Al ser un sitio de citas médicas, si rechazan, puedes darles un aviso cordial 
+    // o redirigirlos, aquí les mostramos una alerta interactiva explicativa.
+    alert("Para poder agendar citas y usar los servicios de búsqueda médica inclusiva de Hospired, es necesario aceptar los términos de uso. La plataforma no estará disponible hasta su aceptación.");
+  }
+  
+</script>
+
+</body>
+</html>
